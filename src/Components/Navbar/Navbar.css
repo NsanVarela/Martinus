@@ -48,6 +48,12 @@
     skew(10deg);
 } */
 
+.nav-active {
+    background-color: rgb(255, 224, 83);
+    color: black;
+    transition: all 0.2s ease-out;
+}
+
 .nav-links:hover {
     background-color: rgb(255, 224, 83);
     color: black;

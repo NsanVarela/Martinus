@@ -1,39 +1,54 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { MenuItems } from './MenuItems';
 import './Navbar.css';
 import logo from './logo-martinus.svg'
 import { Button } from '../Button';
 import { Link } from "react-scroll";
 
-class Navbar extends Component {
-    state = { clicked: false }
+export default function Navbar() {
+    const [clicked, setClicked] = useState(false);
+    const [lastItemActive, setLastItemActive] = useState('main');
 
-    handleClick = () => {
-        this.setState({ clicked: !this.state.clicked })
+    const [menuItemActive, setMenuItemActive] = useState({
+        main: true,
+        contact: false,
+        shop: false,
+        events: false,
+        who: false,
+    });
+
+    function handleClick(event) {
+        const oldMenuItemsActive = menuItemActive;
+        oldMenuItemsActive[event.target.id] = true;
+        oldMenuItemsActive[lastItemActive] = false;
+        setLastItemActive(event.target.id);
+        setMenuItemActive(oldMenuItemsActive);
+        setClicked(!clicked);
     }
 
-    render() {
-        return (
-            <nav className="NavbarItems">
-                <img src={logo} className="navbar-logo" alt="Logo" />
-                <div className="menu-icon" onClick={this.handleClick}>
-                    <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
-                </div>
-                <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
-                    {MenuItems.map((item, index) => {
-                        return (
-                            <li key={index}>
-                                <Link className={item.cName} to={item.url}>
-                                    {item.title}
-                                </Link>
-                            </li>
-                        )
-                    })}
-                </ul>
-                <Button>Sign up</Button>
-            </nav>
-        )
-    }
+    return (
+        <nav className="NavbarItems">
+            <img src={logo} className="navbar-logo" alt="Logo" />
+            <div className="menu-icon">
+                <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
+            </div>
+            <ul>
+                {MenuItems.map((item, index) => {
+                    return (
+                        <li key={index}>
+                            <Link 
+                                className={['nav-links', menuItemActive[item.id] ? 'nav-active' : ''].join(' ')} 
+                                to={item.url}
+                                id={item.id}
+                                onClick={(event) => handleClick(event)}
+                            >
+                                {item.title}
+                            </Link>
+                        </li>
+                    )
+                })}
+            </ul>
+            <Button>Sign up</Button>
+        </nav>
+    );
 }
-
-export default Navbar
