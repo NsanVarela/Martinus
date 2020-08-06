@@ -6,27 +6,27 @@ export const MenuItems = [
     },
     {
         title: 'QUI SOMMES-NOUS ?',
-        url: '#',
+        url: 'who',
         cName: 'nav-links'
     },
     {
         title: 'NOS MISSIONS',
-        url: '#',
+        url: 'missions',
         cName: 'nav-links'
     },
     {
         title: 'BOUTIQUE SOLIDAIRE',
-        url: '#',
+        url: 'shop',
         cName: 'nav-links'
     },
     {
         title: 'TÉMOIGNAGES',
-        url: '#',
+        url: 'testimonials',
         cName: 'nav-links'
     },
     {
         title: 'ÉVÈNEMENTS',
-        url: '#',
-        cName: 'nav-links-mobile'
+        url: 'events',
+        cName: 'nav-links'
     }
 ]

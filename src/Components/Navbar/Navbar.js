@@ -3,7 +3,7 @@ import { MenuItems } from './MenuItems';
 import './Navbar.css';
 import logo from './logo-martinus.svg'
 import { Button } from '../Button';
-// import { Link, animateScroll as scroll } from "react-scroll";
+import { Link } from "react-scroll";
 
 class Navbar extends Component {
     state = { clicked: false }
@@ -23,9 +23,9 @@ class Navbar extends Component {
                     {MenuItems.map((item, index) => {
                         return (
                             <li key={index}>
-                                <a className={item.cName} href={item.url}>
+                                <Link className={item.cName} to={item.url}>
                                     {item.title}
-                                </a>
+                                </Link>
                             </li>
                         )
                     })}
