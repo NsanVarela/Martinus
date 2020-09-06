@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles({
     who: {
-        backgroundColor: '#FFFFFF',
+        backgroundColor: '#efefef',
         height: 'calc(100vh - 2rem - 50px)',
     },
 });
