@@ -12,6 +12,9 @@ const useStyles = makeStyles({
         backgroundColor: '#E2E3E5',
         height: 'calc(98vh - 2rem - 50px)',
     },
+    images: {
+        height: 'calc(98vh - 2rem - 50px)',
+    },
     baseline1: {
         fontSize: '50px',
         zIndex: 10,
@@ -33,6 +36,7 @@ const useStyles = makeStyles({
         zIndex: 10,
         backgroundColor: '#0cc722',
         color: '#FFFFFF',
+        fontWeight: 'bold',
         position: 'absolute',
         top: '70%',
         left: '80%',
@@ -74,7 +78,7 @@ export default function Main() {
                 <span className={classes.baseline2}>Ensemble,<br></br>nous pouvons tant<br></br>accomplir</span>
                 <Button className={classes.donationBtn} variant="contained">faire un don</Button>
                 <Slider {...settings}>
-                    <img className="images" src={imgMain2} width="100%" alt="img 2" />
+                    <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />
                 </Slider>
             </div>
         </>

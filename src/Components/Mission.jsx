@@ -18,6 +18,7 @@ const useStyles = makeStyles({
     },
     body: {
         display: 'flex',
+        justifyContent: 'space-around',
     },
     missionContent: {
         display: 'flex',
