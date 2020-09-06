@@ -5,12 +5,12 @@ import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import imgMain2 from '../assets/images/imgMain2.png';
+import imgMain2 from '../assets/images/main/imgMain2.png';
 
 const useStyles = makeStyles({
     main: {
         backgroundColor: '#E2E3E5',
-        height: 'calc(100vh - 2rem - 50px)',
+        height: 'calc(98vh - 2rem - 50px)',
     },
     baseline1: {
         fontSize: '50px',
