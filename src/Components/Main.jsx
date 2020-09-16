@@ -10,10 +10,11 @@ import imgMain2 from '../assets/images/main/imgMain2.png';
 const useStyles = makeStyles({
     main: {
         backgroundColor: '#E2E3E5',
-        height: 'calc(98vh - 2rem - 50px)',
+        height: '100%',
+        position: 'relative',
     },
     images: {
-        height: 'calc(98vh - 2rem - 50px)',
+        height: '100%',
     },
     baseline1: {
         fontSize: '50px',
@@ -38,8 +39,8 @@ const useStyles = makeStyles({
         color: '#FFFFFF',
         fontWeight: 'bold',
         position: 'absolute',
-        top: '70%',
-        left: '80%',
+        bottom: '20%',
+        right: '10%',
     },
     newsletterBtn: {
         zIndex: 10,
@@ -50,7 +51,7 @@ const useStyles = makeStyles({
         fontSize: '14px',
         position: 'absolute',
         top: '15%',
-        left: '80%',
+        right: '10%',
     },
     newsletterIcon: {
         marginRight: '10px',

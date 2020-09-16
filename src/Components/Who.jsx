@@ -4,30 +4,23 @@ import { makeStyles } from '@material-ui/core';
 const useStyles = makeStyles({
     who: {
         backgroundColor: '#efefef',
-        height: 'calc(65vh - 2rem - 50px)',
+        height: '100%',
+        padding: '5% 5% 5% 5%',
     },
     title: {
-        paddingTop: '90px',
-        marginLeft: '90px',
         marginBottom: '20px',
         color: '#4973b9'
     },
     subTitle: {
-        marginLeft: '90px',
         marginBottom: '20px',
         color: '#333333',
         fontSize: '34px',
         fontWeight: 'lighter'
     },
     body: {
-        marginLeft: '90px',
-        marginBottom: '20px',
-        maxWidth: '85%',
+        marginBottom: '2%',
         textAlign: 'justify',
     },
-    signature: {
-        marginLeft: '90px'
-    }
 });
 
 export default function Who() {

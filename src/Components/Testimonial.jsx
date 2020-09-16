@@ -10,7 +10,7 @@ import videoCover2 from '../assets/videos/cover-videos/jacques-dellolio.png';
 const useStyles = makeStyles({
     testimonial: {
         backgroundColor: '#E2E3E5',
-        height: 'calc(120vh - 2rem - 50px)',
+        height: '100%',
     },
     title: {
         textAlign: 'center',

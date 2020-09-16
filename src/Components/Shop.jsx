@@ -8,11 +8,11 @@ import roundShadow from '../assets/images/shop/roundShadow.png';
 const useStyles = makeStyles({
     shop: {
         backgroundColor: '#FFFFFF',
-        height: 'calc(100vh - 2rem - 50px)',
+        height: '100%',
+        padding: '5% 5% 5% 5%'
     },
     title: {
-        paddingTop: '70px',
-        marginBottom: '90px',
+        marginBottom: '5%',
         textAlign: 'center',
         color: '#4973b9',
         fontSize: '30px',
@@ -25,18 +25,17 @@ const useStyles = makeStyles({
         position: 'relative',
     },
     maleTshirtImg: {
-        height: '400px',
-        marginLeft: '50px',
+        height: '70%',
     },
     maleShadowImg: {
-        top: '200px',
-        left: '115px',
         position: 'absolute',
-        width: '250px',
+        top: '30%',
+        left: '7%',
+        width: '60%',
     },
     text: {
         color: '#333333',
-        paddingTop: '70px',
+        paddingTop: '10%',
         maxWidth: '230px',
         minWidth: '230px',
         textAlign: 'center',
@@ -46,20 +45,20 @@ const useStyles = makeStyles({
         backgroundColor: '#0cc722',
         color: '#FFFFFF',
         fontWeight: 'bold',
-        marginTop: '130px',
+        marginTop: '40%',
     },
     femaleTshirt: {
         position: 'relative',
+        paddingLeft: '5%',
     },
     femaleTshirtImg: {
-        height: '400px',
-        marginRight: '50px',
+        height: '72%',
     },
     femaleShadowImg: {
-        top: '200px',
-        left: '55px',
         position: 'absolute',
-        width: '250px',
+        top: '25%',
+        right: '18%',
+        width: '60%',
     },
 });
 
