@@ -11,27 +11,19 @@ const useStyles = makeStyles({
     testimonial: {
         backgroundColor: '#E2E3E5',
         height: '100%',
+        padding: '5% 15%',
     },
     title: {
         textAlign: 'center',
-        paddingTop: '60px',
         color: '#333333',
     },
     text: {
-        maxWidth: '80%',
-        marginTop: '30px',
-        marginLeft: '10%',
-        marginRight: '10%',
-        marginBottom: '30px',
+        marginTop: '2%',
+        marginBottom: '2%',
         textAlign: 'justify',
-    },
-    slider: {
-        // marginLeft: '30%',
     },
     player: {
         marginLeft: '10%',
-        // marginRight: '20%',
-        // width: '80%',
     }
 });
 
@@ -82,14 +74,14 @@ export default function Testimonial() {
                 <Slider className={classes.slider} {...settings}>
                     <ReactPlayer 
                         className={classes.player} 
-                        url="https://youtu.be/ycrqJGWdfzk" 
+                        url="https://youtu.be/aiNzMU3upOI" 
                         width="80%"
                         height="400px"
                         light={videoCover1}
                     />
                     <ReactPlayer
                         className={classes.player} 
-                        url="https://youtu.be/JwoV1-ykm9E"
+                        url="https://youtu.be/olcpKfENo9k"
                         width="80%"
                         height="400px"
                         light={videoCover2}
