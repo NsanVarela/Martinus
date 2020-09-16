@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core';
 const useStyles = makeStyles({
     footbar: {
         backgroundColor: '#3B3B3B',
-        height: 'calc(60vh - 2rem - 50px)',
+        height: '100%',
     },
 });
 

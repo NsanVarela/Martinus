@@ -8,11 +8,10 @@ import imgMission4 from '../assets/images/missions/imgMission4.svg';
 const useStyles = makeStyles({
     mission: {
         backgroundColor: '#4973b9',
-        height: 'calc(40vh - 2rem - 50px)',
+        height: '100%',
+        padding: '2% 2% 5% 2%',
     },
     title: {
-        paddingTop: '30px',
-        marginLeft: '90px',
         marginBottom: '20px',
         color: '#FFFFFF'
     },
