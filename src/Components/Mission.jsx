@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     mission: {
         backgroundColor: '#4973b9',
         height: '100%',
-        padding: '2% 2% 5% 2%',
+        padding: '3% 5% 3% 5%',
     },
     title: {
         marginBottom: '20px',
