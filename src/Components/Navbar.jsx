@@ -18,6 +18,7 @@ const useStyles = makeStyles({
 export default function Navbar() {
     const classes = useStyles();
     const [clicked, setClicked] = useState(false);
+    const [clickedBurger, setClickedBurger] = useState(false);
     const [lastItemActive, setLastItemActive] = useState('main');
     const [menuItemActive, setMenuItemActive] = useState({
         main: true,
@@ -27,6 +28,8 @@ export default function Navbar() {
         testimonial: false,
         event: false,
     });
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+
     function handleClick(event) {
         const oldMenuItemsActive = menuItemActive;
         oldMenuItemsActive[event.target.id] = true;
@@ -35,34 +38,31 @@ export default function Navbar() {
         setMenuItemActive(oldMenuItemsActive);
         setClicked(!clicked);
     }
-    const isDesktopOrLaptop = useMediaQuery({ query: '(min-device-width: 1224px)' });
-    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
     return (
-        <nav className={classes.navBarItem}>
-            <img src={logo} className={classes.navBarLogo} alt="Logo" />
-            { isTabletOrMobile &&
-                <div className={classes.menuIcon}>
-                    <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
-                </div>
-            }
-            { isDesktopOrLaptop &&
-                <ul className={classes.navMenu}>
-                    {MenuItems.map((item, index) => {
-                        return (
-                            <li key={index}>
-                                <Link 
-                                    className={[classes.navLinks, menuItemActive[item.id] ? classes.navActive : ''].join(' ')} 
-                                    to={item.url}
-                                    id={item.id}
-                                    onClick={(event) => handleClick(event)} >
-                                    {item.title}
-                                </Link>
-                            </li>
-                        )
-                    })}
-                </ul>
-            }
+      <nav className={classes.navBarItem}>
+          <img src={logo} className={classes.navBarLogo} alt="Logo" />
+          { isTabletOrMobile ? (
+              <div className={classes.menuIcon}>
+                  <i onClick={() => setClickedBurger(!clickedBurger)}className={clickedBurger ? 'fas fa-times' : 'fas fa-bars'}></i>
+              </div>
+          ) : (
+            <ul className={classes.navMenu}>
+                {MenuItems.map((item, index) => {
+                    return (
+                        <li key={index}>
+                            <Link 
+                                className={[classes.navLinks, menuItemActive[item.id] ? classes.navActive : ''].join(' ')} 
+                                to={item.url}
+                                id={item.id}
+                                onClick={(event) => handleClick(event)} >
+                                {item.title}
+                            </Link>
+                        </li>
+                    )
+                })}
+            </ul>
+          )}
         </nav>
     );
 }

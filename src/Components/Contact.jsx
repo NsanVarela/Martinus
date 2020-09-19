@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 
 import Button from '@material-ui/core/Button';
 
@@ -15,6 +15,8 @@ const useStyles = makeStyles({
     contactTitle: {
         color: '#333333',
         textAlign: 'center',
+        fontWeight: 'bold',
+        fontFamily: 'Montserrat',
     },
     contactBtn: {
         zIndex: 10,
@@ -29,7 +31,7 @@ export default function Contact() {
     const classes = useStyles();
     return(
         <div className={classes.contact} id="contact">
-            <h3 className={classes.contactTitle}>Participez à l'aventure Martinu's en tant que bénévole ou partenaire !</h3>
+            <Typography variant="h6" className={classes.contactTitle}>Participez à l'aventure Martinu's en tant que bénévole ou partenaire !</Typography>
             <Button className={classes.contactBtn} variant="contained">contact</Button>
         </div>
     );

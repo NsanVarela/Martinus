@@ -54,21 +54,31 @@ const useStyles = makeStyles({
         right: '10%',
     },
     newsletterIcon: {
-        marginRight: '10px',
-        width: '20px',
-    }
+        marginRight: 10,
+        width: 20,
+    },
+    dot: {
+        height: 10,
+        width: 10,
+        backgroundColor: '#0cc722',
+        borderRadius: '50%',
+        display: 'inline-block',
+    },
 });
-
-const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-};
 
 export default function Main() {
     const classes = useStyles();
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        customPaging: () => (
+            <div><span className={classes.dot}></span></div>
+        ),
+    };
+
     return (
         <>
             <div className={classes.main}>
@@ -79,6 +89,7 @@ export default function Main() {
                 <span className={classes.baseline2}>Ensemble,<br></br>nous pouvons tant<br></br>accomplir</span>
                 <Button className={classes.donationBtn} variant="contained">faire un don</Button>
                 <Slider {...settings}>
+                    <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />
                     <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />
                 </Slider>
             </div>
