@@ -6,6 +6,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import imgMain2 from '../assets/images/main/imgMain2.png';
+import Modal from '@material-ui/core/Modal';
+import Backdrop from '@material-ui/core/Backdrop';
+import { useSpring, animated } from 'react-spring';
 
 const useStyles = makeStyles({
   main: {
@@ -64,6 +67,37 @@ const useStyles = makeStyles({
     borderRadius: '50%',
     display: 'inline-block',
   },
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "#0000FF",
+    opacity: "0.5",
+  },
+});
+
+const Fade = React.forwardRef(function Fade(props, ref) {
+  const { in: open, children, onEnter, onExited, ...other } = props;
+  const style = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: open ? 1 : 0 },
+    onStart: () => {
+      if (open && onEnter) {
+        onEnter();
+      }
+    },
+    onRest: () => {
+      if (!open && onExited) {
+        onExited();
+      }
+    },
+  });
+
+  return (
+    <animated.div ref={ref} style={style} {...other}>
+      {children}
+    </animated.div>
+  );
 });
 
 export default function Main() {
@@ -78,6 +112,15 @@ export default function Main() {
       <div><span className={classes.dot}></span></div>
     ),
   };
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <>
@@ -88,7 +131,26 @@ export default function Main() {
         <Typography variant="h1" className={classes.baseline2}>Ensemble,<br></br>nous pouvons tant<br></br>accomplir</Typography>
         <span className={classes.baseline1}>Éducation,<br></br> parchemin de la vie</span>
         {/* <span className={classes.baseline2}>Ensemble,<br></br>nous pouvons tant<br></br>accomplir</span> */}
-        <Button className={classes.donationBtn} variant="contained">faire un don</Button>
+        <Button className={classes.donationBtn} variant="contained" onClick={handleOpen}>faire un don</Button>
+        <Modal
+          aria-labelledby="spring-modal-title"
+          aria-describedby="spring-modal-description"
+          className={classes.modal}
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={open}>
+            <div className={classes.paper}>
+              <h2 id="spring-modal-title">Spring modal</h2>
+              <p id="spring-modal-description">react-spring animates me.</p>
+            </div>
+          </Fade>
+        </Modal>
         <Slider {...settings}>
           <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />
           <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />
