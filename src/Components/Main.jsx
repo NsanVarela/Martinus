@@ -79,11 +79,6 @@ export default function Main() {
     ),
   };
 
-  function handleClick(event) {
-    event.preventDefault();
-    console.log('Clicked!');
-  }
-
   return (
     <>
       <div className={classes.main}>
@@ -93,7 +88,7 @@ export default function Main() {
         <Typography variant="h1" className={classes.baseline2}>Ensemble,<br></br>nous pouvons tant<br></br>accomplir</Typography>
         <span className={classes.baseline1}>Éducation,<br></br> parchemin de la vie</span>
         {/* <span className={classes.baseline2}>Ensemble,<br></br>nous pouvons tant<br></br>accomplir</span> */}
-        <Button className={classes.donationBtn} variant="contained" onClick={handleClick}>faire un don</Button>
+        <Button className={classes.donationBtn} variant="contained">faire un don</Button>
         <Slider {...settings}>
           <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />
           <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />
