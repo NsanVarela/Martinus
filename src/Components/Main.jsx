@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 import "slick-carousel/slick/slick.css";
@@ -85,8 +85,9 @@ export default function Main() {
                 <Button className={classes.newsletterBtn} variant="contained">
                     <EmailOutlinedIcon className={classes.newsletterIcon}/>Newsletter
                 </Button>
+                <Typography variant="h1" className={classes.baseline2}>Ensemble,<br></br>nous pouvons tant<br></br>accomplir</Typography>
                 <span className={classes.baseline1}>Éducation,<br></br> parchemin de la vie</span>
-                <span className={classes.baseline2}>Ensemble,<br></br>nous pouvons tant<br></br>accomplir</span>
+                {/* <span className={classes.baseline2}>Ensemble,<br></br>nous pouvons tant<br></br>accomplir</span> */}
                 <Button className={classes.donationBtn} variant="contained">faire un don</Button>
                 <Slider {...settings}>
                     <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />
