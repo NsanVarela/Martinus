@@ -4,7 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import Button from '@material-ui/core/Button';
-import {events} from '../data/Events.js';
+import {events} from '../data/events.js';
 
 const useStyles = makeStyles({
     event: {
