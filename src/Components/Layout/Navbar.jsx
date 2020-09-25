@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { MenuItems } from './MenuItems';
 import './Navbar.css';
-import logo from '../assets/images/logo-martinus.svg'
+import logo from '../../assets/images/logo-martinus.svg'
 import { Link } from "react-scroll";
 import { makeStyles } from '@material-ui/core';
 import { useMediaQuery } from 'react-responsive';
@@ -14,6 +13,8 @@ const useStyles = makeStyles({
   navLinks: { color: 'rgb(29, 108, 182)', textDecoration: 'none', padding: '0.5rem 1rem' },
   navActive: { backgroundColor: 'rgb(255, 224, 83)', color: 'black', transition: 'all 0.2s ease-out' },
 });
+
+
 
 export default function Navbar() {
   const classes = useStyles();
@@ -29,6 +30,38 @@ export default function Navbar() {
     event: false,
   });
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+  const MenuItems = [
+    {
+        id: 'main',
+        title: 'ACCUEIL',
+        url: 'main',
+    },
+    {
+        id: 'who',
+        title: 'QUI SOMMES-NOUS ?',
+        url: 'who',
+    },
+    {
+        id: 'mission',
+        title: 'NOS MISSIONS',
+        url: 'mission',
+    },
+    {
+        id: 'shop',
+        title: 'BOUTIQUE SOLIDAIRE',
+        url: 'shop',
+    },
+    {
+        id: 'testimonial',
+        title: 'TÉMOIGNAGES',
+        url: 'testimonial',
+    },
+    {
+        id: 'event',
+        title: 'ÉVÈNEMENTS',
+        url: 'event',
+    },
+  ];
 
   function handleClick(event) {
     const oldMenuItemsActive = menuItemActive;
