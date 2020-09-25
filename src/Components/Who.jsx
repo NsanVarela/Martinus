@@ -34,7 +34,7 @@ export default function Who() {
                 </h3>
                 <p className={classes.body}>
                 Association Loi 1901, Martinu’s Man-Elende a pour objectif d’encourager l’éducation dans une école primaire de Leyong,
-                <a target="_blank" rel="noreferrer" href={`https://bit.ly/3h4ZqfY`}> un village situé dans la commune de la Lekié au Cameroun</a>. 
+                <a target="_blank" rel="noopener noreferrer" href={`https://bit.ly/3h4ZqfY`}> un village situé dans la commune de la Lekié au Cameroun</a>. 
                 La création de cette association me paraissait évidente. Originaire du Cameroun, j’ai très vite compris que la réussite professionnelle 
                 passait par une  éducation solide. La réflexion s’est poursuivie lors d’un retour dans le village maternel de Leyong, dans la région 
                 du centre où j’ai rencontré des familles défavorisées qui privilégiaient l’éducation du premier enfant au détriment 
