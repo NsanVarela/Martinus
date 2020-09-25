@@ -2,7 +2,7 @@ export const events = [
   {
     title: "Brunch caritatif",
     date: "07 Novembre 2020",
-    imgPath: require("../assets/images/events/imgEvent1.jpg"),
+    imgPath: require("../assets/images/events/imgEvent2.jpg"),
     description: "Curabitur aliquet quam id dui posuere blandit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vivamus suscipit tortor eget felis porttitor volutpat. Proin eget tortor risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat."
   },
   {
