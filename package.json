@@ -1,7 +1,30 @@
 {
   "name": "martinus",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "scripts": {
+    "start": "PORT=8080 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint:fix": "pretty-quick && eslint --fix src --ext .js,.jsx",
+    "lint": "eslint src --ext .js,.jsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NsanVarela/martinus.git"
+  },
+  "keywords": [
+    "react",
+    "material-design"
+  ],
+  "description": "Martinues Website",
+  "author": "NSV",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NsanVarela/martinus.git"
+  },
+  "homepage": "/",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
     "@material-ui/icons": "^4.9.1",
@@ -18,11 +41,16 @@
     "react-spring": "^8.0.27",
     "slick-carousel": "^1.8.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+  "devDependencies": {
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.17.0",
+    "pretty-quick": "^1.10.0"
   },
   "eslintConfig": {
     "extends": "react-app"
