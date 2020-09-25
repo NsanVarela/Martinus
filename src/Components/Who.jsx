@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Typography, Grid } from '@material-ui/core';
 
 const useStyles = makeStyles({
     who: {
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 export default function Who() {
     const classes = useStyles();
     return (
-        <>
+        <Grid container direction="column" justify="flex-start" alignItems="flex-end">
             <div className={classes.who} id="who">
                 <h3 className={classes.title}>Qui sommes-nous ?</h3>
                 <h3 className={classes.subTitle}>Martinu's Man Elende,<br></br>
@@ -45,6 +45,6 @@ export default function Who() {
                     - Martin ATANGANA<br></br>Président de l'association
                 </p>
             </div>
-        </>
+        </Grid>
     )
 }
