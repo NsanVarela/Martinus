@@ -1,9 +1,21 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core';
+import Dialog from '@material-ui/core/Dialog';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogActions from '@material-ui/core/DialogActions';
+import TextField from '@material-ui/core/TextField';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import Button from '@material-ui/core/Button';
+
 import {events} from '../data/events.js';
 
 const useStyles = makeStyles({
@@ -17,6 +29,9 @@ const useStyles = makeStyles({
     imgContainer: {
         width: '40%',
         marginRight: '5%',
+    },
+    images: {
+        maxHeight: '430px',
     },
     eventDetails: {
         display: 'flex',
@@ -37,6 +52,14 @@ const useStyles = makeStyles({
         maxWidth: '280px',
         marginBottom: '10%',
     },
+    select: {
+        marginTop: '10%',
+        marginBottom: '10%',
+    },
+    selectontrol: {
+        marginLeft: '5%',
+        minWidth: '20%',
+    },
 });
 
 const settings = {
@@ -49,6 +72,24 @@ const settings = {
 
 export default function Event() {
     const classes = useStyles();
+    const [openDialog, setOpenDialog]= React.useState(false);
+    const [openSelect, setOpenSelect]= React.useState(false);
+    const [ticket, setTicket] = React.useState(1);
+    const handleClickOpenDialog = () => {
+        setOpenDialog(true);
+    };
+    const handleCloseDialog = () => {
+        setOpenDialog(false);
+    };
+    const handleOpenSelect = () => {
+        setOpenSelect(true);
+    };
+    const handleCloseSelect = () => {
+        setOpenSelect(false);
+    };
+    const handleChange = (event) => {
+        setTicket(event.target.value);
+    };
 
     return (
         <div className={classes.event} id="event">
@@ -61,13 +102,78 @@ export default function Event() {
                                 <div className={classes.eventDetails}>
                                     <h3 className={classes.eventTitle}>{item.title}</h3>
                                     <p className={classes.eventCorps}>{item.description}</p>
-                                    <Button className={classes.registerBtn} variant="contained">je participe à cet évènement</Button>
+                                    <Button className={classes.registerBtn} variant="contained" onClick={handleClickOpenDialog}>je participe à cet évènement</Button>
                                 </div>
                             </>
                         );
                     })}
                 </Slider>
             </div>
+            <Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby="form-dialog-title">
+                <DialogTitle id="form-dialog-title">Réservation</DialogTitle>
+                <DialogContent>
+                <DialogContentText>
+                    Pour vous inscrire à cet évènement, merci de renseigner les champs du formulaire.
+                    Nous reviendrons vers vous pour vous confirmer votre inscription.
+                </DialogContentText>
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    id="name"
+                    label="Nom"
+                    type="text"
+                    fullWidth
+                    variant="outlined"
+                />
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    id="firstName"
+                    label="Prénom"
+                    type="text"
+                    fullWidth
+                    variant="outlined"
+                />
+                <TextField
+                    autoFocus
+                    margin="dense"
+                    id="name"
+                    label="Email"
+                    type="email"
+                    fullWidth
+                    variant="outlined"
+                />
+                <div className={classes.select}>
+                    <Button className={classes.button} onClick={handleOpenSelect}>
+                        Choisissez le nombre de ticket :
+                    </Button>
+                    <FormControl className={classes.selectontrol}>
+                        <InputLabel id="select-label">Ticket(s)</InputLabel>
+                        <Select
+                            open={openSelect}
+                            onClose={handleCloseSelect}
+                            onOpen={handleOpenSelect}
+                            value={ticket}
+                            onChange={handleChange}
+                        >
+                            <MenuItem value={1}>1</MenuItem>
+                            <MenuItem value={2}>2</MenuItem>
+                            <MenuItem value={3}>3</MenuItem>
+                            <MenuItem value={4}>4</MenuItem>
+                            <MenuItem value={5}>5</MenuItem>
+                        </Select>
+                    </FormControl>
+                </div>
+                </DialogContent>
+                <DialogActions>
+                <Button onClick={handleCloseDialog} color="primary">
+                    Annuler
+                </Button>
+                <Button onClick={handleCloseDialog} color="primary">
+                    Confirmer
+                </Button>
+                </DialogActions>
+            </Dialog>
         </div>
     );
 }
