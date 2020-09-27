@@ -2,13 +2,13 @@ import React from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import imgMain2 from '../assets/images/main/imgMain2.png';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import { useSpring, animated } from 'react-spring';
+import imgMain2 from '../assets/images/main/imgMain2.png';
 
 const useStyles = makeStyles({
   main: {
@@ -26,7 +26,7 @@ const useStyles = makeStyles({
     position: 'absolute',
     top: '50%',
     left: '50%',
-    display: 'none'
+    display: 'none',
   },
   baseline2: {
     fontSize: '50px',
@@ -71,8 +71,8 @@ const useStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: "#0000FF",
-    opacity: "0.5",
+    backgroundColor: '#0000FF',
+    opacity: '0.5',
   },
 });
 
@@ -108,9 +108,13 @@ export default function Main() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    customPaging: () => (
-      <div><span className={classes.dot}></span></div>
-    ),
+    customPaging() {
+      return (
+        <div>
+          <span className={classes.dot}></span>
+        </div>
+      );
+    },
   };
   const [open, setOpen] = React.useState(false);
 
@@ -126,12 +130,19 @@ export default function Main() {
     <>
       <div className={classes.main}>
         <Button className={classes.newsletterBtn} variant="contained">
-          <EmailOutlinedIcon className={classes.newsletterIcon}/>Newsletter
+          <EmailOutlinedIcon className={classes.newsletterIcon} />
+          Newsletter
         </Button>
-        <Typography variant="h1" className={classes.baseline2}>Ensemble,<br></br>nous pouvons tant<br></br>accomplir</Typography>
-        <span className={classes.baseline1}>Éducation,<br></br> parchemin de la vie</span>
+        <Typography variant="h1" className={classes.baseline2}>
+          Ensemble,<br></br>nous pouvons tant<br></br>accomplir
+        </Typography>
+        <span className={classes.baseline1}>
+          Éducation,<br></br> parchemin de la vie
+        </span>
         {/* <span className={classes.baseline2}>Ensemble,<br></br>nous pouvons tant<br></br>accomplir</span> */}
-        <Button className={classes.donationBtn} variant="contained" onClick={handleOpen}>faire un don</Button>
+        <Button className={classes.donationBtn} variant="contained" onClick={handleOpen}>
+          faire un don
+        </Button>
         <Modal
           aria-labelledby="spring-modal-title"
           aria-describedby="spring-modal-description"
@@ -157,5 +168,5 @@ export default function Main() {
         </Slider>
       </div>
     </>
-  )
+  );
 }
