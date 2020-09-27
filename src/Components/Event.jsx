@@ -18,6 +18,8 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 
 import events from '../data/events';
 
@@ -55,6 +57,17 @@ const useStyles = makeStyles({
     maxWidth: '280px',
     marginBottom: '10%',
   },
+  inputFeedback: {
+    color: '#9B2841',
+    marginLeft: '14px',
+    marginRight: '14px',
+    fontSize: '0.6666666666666666rem',
+    marginTop: '3px',
+    textAlign: 'left',
+    fontFamily: 'GothamBook',
+    fontWeight: 400,
+    lineHeight: 1.66,
+  },
   select: {
     marginTop: '10%',
     marginBottom: '10%',
@@ -78,6 +91,7 @@ export default function Event() {
   const [openDialog, setOpenDialog] = React.useState(false);
   const [openSelect, setOpenSelect] = React.useState(false);
   const [ticket, setTicket] = React.useState(1);
+  const [isSubmitionCompleted, setSubmitionCompleted] = React.useState(false);
   const handleClickOpenDialog = () => {
     setOpenDialog(true);
   };
@@ -86,11 +100,12 @@ export default function Event() {
   };
   const handleOpenSelect = () => {
     setOpenSelect(true);
+    setSubmitionCompleted(false);
   };
   const handleCloseSelect = () => {
     setOpenSelect(false);
   };
-  const handleChange = event => {
+  const handleChangeValue = event => {
     setTicket(event.target.value);
   };
 
@@ -115,90 +130,168 @@ export default function Event() {
         </Slider>
       </div>
       <Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Réservation</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Pour vous inscrire à cet évènement, merci de renseigner les champs du formulaire. Nous reviendrons vers vous
-            pour vous confirmer votre inscription.
-          </DialogContentText>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Nom"
-            type="text"
-            fullWidth
-            variant="outlined"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <AccountCircleOutlinedIcon color="disabled" />
-                </InputAdornment>
-              ),
-            }}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="firstName"
-            label="Prénom"
-            type="text"
-            fullWidth
-            variant="outlined"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <AccountCircleOutlinedIcon color="disabled" />
-                </InputAdornment>
-              ),
-            }}
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email"
-            type="email"
-            fullWidth
-            variant="outlined"
-            InputProps={{
-              startAdornment: (
-                <InputAdornment position="start">
-                  <MailOutlineIcon color="disabled" />
-                </InputAdornment>
-              ),
-            }}
-          />
-          <div className={classes.select}>
-            <Button className={classes.button} onClick={handleOpenSelect}>
-              Choisissez le nombre de ticket :
-            </Button>
-            <FormControl className={classes.selectontrol}>
-              <InputLabel id="select-label">Ticket(s)</InputLabel>
-              <Select
-                open={openSelect}
-                onClose={handleCloseSelect}
-                onOpen={handleOpenSelect}
-                value={ticket}
-                onChange={handleChange}
+        {!isSubmitionCompleted && (
+          <React.Fragment>
+            <DialogTitle id="form-dialog-title">Réservation</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                Pour vous inscrire à cet évènement, merci de renseigner les champs du formulaire. Nous reviendrons vers
+                vous pour vous confirmer votre inscription.
+              </DialogContentText>
+              <Formik
+                initialValues={{ firstname: '', name: '', email: '' }}
+                onSubmit={(values, { setSubmitting }) => {
+                  setSubmitting(true);
+                  console.log('voici les données du formulaire : ', values);
+                  // axios
+                  //   .post(contactFormEndpoint, values, {
+                  //     headers: {
+                  //       'Access-Control-Allow-Origin': '*',
+                  //       'Content-Type': 'application/json',
+                  //     },
+                  //   })
+                  //   .then(resp => {
+                  //     setSubmitionCompleted(true);
+                  //   });
+                }}
+                validationSchema={Yup.object().shape({
+                  firstname: Yup.string().required(`Le prénom est requis.`),
+                  name: Yup.string().required(`Le nom est requis.`),
+                  email: Yup.string()
+                    .email()
+                    .required(`L'email est requis.`),
+                  ticket: Yup.number().required(`Le nombre de ticket est requis.`),
+                })}
               >
-                <MenuItem value={1}>1</MenuItem>
-                <MenuItem value={2}>2</MenuItem>
-                <MenuItem value={3}>3</MenuItem>
-                <MenuItem value={4}>4</MenuItem>
-                <MenuItem value={5}>5</MenuItem>
-              </Select>
-            </FormControl>
-          </div>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseDialog} color="primary">
-            Annuler
-          </Button>
-          <Button onClick={handleCloseDialog} color="primary">
-            Confirmer
-          </Button>
-        </DialogActions>
+                {props => {
+                  const {
+                    values,
+                    touched,
+                    errors,
+                    dirty,
+                    isSubmitting,
+                    handleChange,
+                    handleBlur,
+                    handleSubmit,
+                    handleReset,
+                  } = props;
+                  return (
+                    <form onSubmit={handleSubmit}>
+                      <TextField
+                        label="Prénom"
+                        name="firstname"
+                        className={classes.textField}
+                        value={values.firstname}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        helperText={errors.firstname && touched.firstname && errors.firstname}
+                        margin="normal"
+                        fullWidth
+                        variant="outlined"
+                        InputProps={{
+                          startAdornment: (
+                            <InputAdornment position="start">
+                              <AccountCircleOutlinedIcon color="disabled" />
+                            </InputAdornment>
+                          ),
+                        }}
+                      />
+
+                      <TextField
+                        error={errors.name && touched.name}
+                        label="Nom"
+                        name="name"
+                        className={classes.textField}
+                        value={values.name}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        helperText={errors.name && touched.name && errors.name}
+                        margin="normal"
+                        fullWidth
+                        variant="outlined"
+                        InputProps={{
+                          startAdornment: (
+                            <InputAdornment position="start">
+                              <AccountCircleOutlinedIcon color="disabled" />
+                            </InputAdornment>
+                          ),
+                        }}
+                      />
+
+                      <TextField
+                        error={errors.email && touched.email}
+                        label="Email"
+                        name="email"
+                        className={classes.textField}
+                        value={values.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        helperText={errors.email && touched.email && errors.email}
+                        margin="normal"
+                        fullWidth
+                        variant="outlined"
+                        InputProps={{
+                          startAdornment: (
+                            <InputAdornment position="start">
+                              <MailOutlineIcon color="disabled" />
+                            </InputAdornment>
+                          ),
+                        }}
+                      />
+
+                      <div className={classes.select}>
+                        <Button className={classes.button} onClick={handleOpenSelect}>
+                          Choisissez le nombre de ticket :
+                        </Button>
+                        <FormControl className={classes.selectontrol}>
+                          <InputLabel id="select-label">Ticket(s)</InputLabel>
+                          <Select
+                            error={errors.ticket && touched.ticket}
+                            name={ticket}
+                            open={openSelect}
+                            onClose={handleCloseSelect}
+                            onOpen={handleOpenSelect}
+                            onBlur={handleBlur}
+                            value={values.ticket}
+                            onChange={handleChangeValue}
+                            helperText={errors.ticket && touched.ticket && errors.ticket}
+                          >
+                            <MenuItem value={1}>1</MenuItem>
+                            <MenuItem value={2}>2</MenuItem>
+                            <MenuItem value={3}>3</MenuItem>
+                            <MenuItem value={4}>4</MenuItem>
+                            <MenuItem value={5}>5</MenuItem>
+                          </Select>
+                          <div className={classes.inputFeedback}>{errors.ticket}</div>
+                        </FormControl>
+                      </div>
+                      <DialogActions>
+                        <Button
+                          type="button"
+                          color="primary"
+                          onClick={(handleCloseDialog, handleReset)}
+                          disabled={!dirty || isSubmitting}
+                        >
+                          Annuler
+                        </Button>
+                        <Button
+                          type="submit"
+                          className="outline"
+                          onClick={(handleCloseDialog, handleSubmit)}
+                          disabled={!dirty || isSubmitting}
+                        >
+                          Submit
+                        </Button>
+                        {/* <DisplayFormikState {...props} /> */}
+                      </DialogActions>
+                    </form>
+                  );
+                }}
+              </Formik>
+            </DialogContent>
+          </React.Fragment>
+        )}
+        {isSubmitionCompleted && <React.Fragment></React.Fragment>}
       </Dialog>
     </div>
   );
