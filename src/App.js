@@ -3,7 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 
 import './App.css';
-import { theme } from './components/DesignUI/Theme';
+import theme from './components/DesignUI/Theme';
 
 import Navbar from './components/Layout/Navbar';
 import Footer from './components/Layout/Footer';
@@ -16,7 +16,7 @@ import Event from './components/Event';
 import Contact from './components/Contact';
 import Footbar from './components/Footbar';
 
-const App = () => {  
+const App = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />

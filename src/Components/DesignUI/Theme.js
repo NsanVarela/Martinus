@@ -88,12 +88,12 @@ const gothamRoundedMedium = {
   fontStretch: 'normal',
 };
 
-export const theme = createMuiTheme({
+const theme = createMuiTheme({
   typography: {
     fontFamily: 'GothamBook',
     fontStyle: 'normal',
     color: primaryColor,
-    //h1
+    // h1
     h1: {
       fontFamily: 'GothamRounded',
       fontSize: 34,
@@ -101,7 +101,7 @@ export const theme = createMuiTheme({
       letterSpacing: '0.1em',
       textTransform: 'uppercase',
     },
-    //h2
+    // h2
     h2: {
       fontFamily: 'GothamRounded',
       fontSize: 22,
@@ -109,7 +109,7 @@ export const theme = createMuiTheme({
       letterSpacing: '0.1em',
       textTransform: 'uppercase',
     },
-    //h3
+    // h3
     h3: {
       fontFamily: 'GothamRoundedBook',
       fontSize: 16,
@@ -117,7 +117,7 @@ export const theme = createMuiTheme({
       letterSpacing: '0.1em',
       textTransform: 'uppercase',
     },
-    //h4
+    // h4
     h4: {
       fontFamily: 'GothamRoundedBook',
       fontSize: 13,
@@ -125,7 +125,7 @@ export const theme = createMuiTheme({
       letterSpacing: '0.1em',
       textTransform: 'uppercase',
     },
-    //h5
+    // h5
     h5: {
       fontFamily: 'GothamBook',
       fontSize: 11,
@@ -133,7 +133,7 @@ export const theme = createMuiTheme({
       letterSpacing: '0.1em',
       textTransform: 'uppercase',
     },
-    //h6
+    // h6
     h6: {
       fontFamily: 'GothamMedium',
 
@@ -142,31 +142,31 @@ export const theme = createMuiTheme({
       letterSpacing: '0.1em',
       textTransform: 'uppercase',
     },
-    //Text-Book_20px
+    // Text-Book_20px
     subtitle1: {
       fontFamily: 'GothamRoundedBook',
       fontSize: 20,
       lineHeight: '23px',
     },
-    //Text-Book_18px
+    // Text-Book_18px
     subtitle2: {
       fontFamily: 'GothamBook',
       fontSize: 18,
       lineHeight: '27px',
     },
-    //Text-Book_15px
+    // Text-Book_15px
     body1: {
       fontFamily: 'GothamBook',
       fontSize: 15,
       lineHeight: '22px',
     },
-    //Text-Book_14px
+    // Text-Book_14px
     body2: {
       fontFamily: 'GothamBook',
       fontSize: 14,
       lineHeight: '22px',
     },
-    //Text-Book_13px
+    // Text-Book_13px
     body3: {
       fontFamily: 'GothamBook',
       fontSize: 13,
@@ -202,3 +202,5 @@ export const theme = createMuiTheme({
     },
   },
 });
+
+export default theme;
