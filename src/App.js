@@ -15,6 +15,7 @@ import Testimonial from './components/Testimonial';
 import Event from './components/Event';
 import Contact from './components/Contact';
 import Footbar from './components/Footbar';
+import Users from './pages/Users/Users'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
       <Testimonial />
       <Event />
       <Contact />
+      <Users />
       <Footbar />
       <Footer />
     </MuiThemeProvider>
