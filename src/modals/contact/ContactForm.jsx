@@ -2,13 +2,14 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 import { useForm, Form } from '../../components/useForm';
 import Controls from '../../components/controls/Controls';
+import * as contactService from '../../services/contactService';
 
 const initialFieldsValues = {
   fullName: ``,
   firstName: ``,
   city: ``,
   email: ``,
-  mobile: ``,
+  phoneNumber: ``,
   messageDate: new Date(),
 }
 export default function ContactForm() {
@@ -23,8 +24,8 @@ export default function ContactForm() {
       ...temp
     })
 
-    if (fieldValues == values)
-      return Object.values(temp).every(x => x == ``)
+    if (fieldValues === values)
+      return Object.values(temp).every(x => x === ``);
   };
 
   const {
@@ -39,7 +40,7 @@ export default function ContactForm() {
   const handleSubmit = e => {
     e.preventDefault()
     if(validate())
-    window.alert('testing...')
+      contactService.registerContact(values);
   };
 
   return (
@@ -72,14 +73,15 @@ export default function ContactForm() {
           error={errors.email} />
           <Controls.Input 
             label="Téléphone"
-            name="mobile"
-            value={values.mobile}
+            name="phoneNumber"
+            value={values.phoneNumber}
             onChange={handleInputChange}
-          error={errors.mobile} />
+          error={errors.phoneNumber} />
           <div>
             <Controls.Button
               type="submit"
-              text="Valider" />
+              text="Valider"
+              onClick={validate} />
             <Controls.Button
               text="Réinitialiser"
               color="default"
