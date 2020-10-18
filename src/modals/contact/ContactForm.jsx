@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Grid, TextField } from '@material-ui/core';
+import React from 'react';
+import { Grid } from '@material-ui/core';
 import { useForm, Form } from '../../components/useForm';
 import Controls from '../../components/controls/Controls';
 
@@ -11,7 +11,7 @@ const initialFieldsValues = {
   mobile: ``,
   messageDate: new Date(),
 }
-export default function UserForm() {
+export default function ContactForm() {
 
   const validate = (fieldValues = values) => {
     let temp = {...errors}
