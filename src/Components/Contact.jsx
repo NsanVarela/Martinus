@@ -1,6 +1,11 @@
 import React from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
+import ContactsIcon from '@material-ui/icons/Contacts';
+import * as contactService from '../services/contactService';
+
+import Controls from './controls/Controls';
+import Popup from '../components/controls/Popup';
+import ContactForm from '../modals/contact/ContactForm';
 
 const useStyles = makeStyles({
   contact: {
@@ -27,15 +32,33 @@ const useStyles = makeStyles({
 });
 
 export default function Contact() {
+
   const classes = useStyles();
+  const [openPopup, setOpenPopup] = React.useState(false);
+  const filledForm = (contact, resetForm) => {
+    contactService.registerContact(contact);
+    resetForm();
+    setOpenPopup(false);
+  }
+
   return (
     <div className={classes.contact} id="contact">
       <Typography variant="h6" className={classes.contactTitle}>
         Participez à l&apos;aventure Martinu&apos;s en tant que bénévole ou partenaire !
       </Typography>
-      <Button className={classes.contactBtn} variant="contained">
-        contact
-      </Button>
+      <Controls.Button
+        text="Nous contacter"
+        variant="contained"
+        // startIcon={<ContactsIcon />}
+        className={classes.contactBtn}
+        onClick={() => setOpenPopup(true)} />
+      <Popup
+        title="Formulaire de contact"
+        openPopup={openPopup}
+        setOpenPopup={setOpenPopup} >
+        <ContactForm
+          filledForm={filledForm} />
+      </Popup>
     </div>
   );
 }
