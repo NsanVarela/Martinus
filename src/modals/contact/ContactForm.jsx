@@ -87,7 +87,7 @@ export default function ContactForm(props) {
             onChange={handleInputChange}
             error={errors.phoneNumber} />
 
-          <div>
+          <div style={{marginTop: '30px', display: 'flex', justifyContent: 'flex-end'}}>
             <Controls.Button
               type="submit"
               text="Valider"
