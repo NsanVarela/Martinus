@@ -35,13 +35,16 @@
     "formik-material-ui": "^3.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-icons": "^3.11.0",
     "react-player": "^2.6.1",
     "react-responsive": "^8.1.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-scroll": "^1.8.0",
     "react-slick": "^0.27.4",
     "react-spring": "^8.0.27",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",

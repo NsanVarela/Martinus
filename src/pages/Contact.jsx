@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
-import ContactsIcon from '@material-ui/icons/Contacts';
+// import ContactsIcon from '@material-ui/icons/Contacts';
 import * as contactService from '../services/contactService';
 
 import Controls from '../components/controls/Controls';
@@ -32,14 +32,13 @@ const useStyles = makeStyles({
 });
 
 export default function Contact() {
-
   const classes = useStyles();
   const [openPopup, setOpenPopup] = React.useState(false);
   const filledForm = (contact, resetForm) => {
     contactService.registerContact(contact);
     resetForm();
     setOpenPopup(false);
-  }
+  };
 
   return (
     <div className={classes.contact} id="contact">
@@ -51,13 +50,10 @@ export default function Contact() {
         variant="contained"
         // startIcon={<ContactsIcon />}
         className={classes.contactBtn}
-        onClick={() => setOpenPopup(true)} />
-      <Popup
-        title="Formulaire de contact"
-        openPopup={openPopup}
-        setOpenPopup={setOpenPopup} >
-        <ContactForm
-          filledForm={filledForm} />
+        onClick={() => setOpenPopup(true)}
+      />
+      <Popup title="Formulaire de contact" openPopup={openPopup} setOpenPopup={setOpenPopup}>
+        <ContactForm filledForm={filledForm} />
       </Popup>
     </div>
   );
