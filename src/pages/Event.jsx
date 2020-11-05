@@ -19,7 +19,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import events from '../data/events';
+import events from '../data/Events';
 
 const useStyles = makeStyles({
   event: {

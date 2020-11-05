@@ -3,7 +3,7 @@ import { makeStyles, Typography } from '@material-ui/core';
 import ContactsIcon from '@material-ui/icons/Contacts';
 import * as contactService from '../services/contactService';
 
-import Controls from './controls/Controls';
+import Controls from '../components/controls/Controls';
 import Popup from '../components/controls/Popup';
 import ContactForm from '../modals/contact/ContactForm';
 
