@@ -95,7 +95,7 @@ export default function Event() {
   };
 
   return (
-    <div className={classes.event} id="event">
+    <div className={classes.event} id="events">
       <div className={classes.imgContainer}>
         <Slider {...settings}>
           {events.map(item => {

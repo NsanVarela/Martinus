@@ -66,7 +66,7 @@ const settings = {
 export default function Testimonial() {
   const classes = useStyles();
   return (
-    <>
+    <div id="testimonial">
       <div className={classes.testimonial}>
         <h3 className={classes.title}>Ils nous soutiennent.</h3>
         <p className={classes.text}>
@@ -91,6 +91,6 @@ export default function Testimonial() {
           />
         </Slider>
       </div>
-    </>
+    </div>
   );
 }

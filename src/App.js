@@ -6,27 +6,25 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import theme from './components/DesignUI/Theme';
 
-import Main from './pages/Main';
-import Who from './pages/Who';
-import Mission from './pages/Mission';
-import Shop from './pages/Shop';
-import Testimonial from './pages/Testimonial';
-import Event from './pages/Event';
-import Contact from './pages/Contact';
+// import Main from './pages/Main';
+// import Who from './pages/Who';
+// import Mission from './pages/Mission';
+// import Shop from './pages/Shop';
+// import Testimonial from './pages/Testimonial';
+// import Event from './pages/Event';
+// import Contact from './pages/Contact';
 
-import Footbar from './components/Footbar';
-import Footer from './components/Layout/Footer';
-import Navbar from './components/Layout/Navbar';
-import Sidebar from './components/Layout/Sidebar';
+// import Footbar from './components/Footbar';
+// import Footer from './components/Layout/Footer';
+import Home from './pages';
 
 const App = () => {
   return (
     <MuiThemeProvider theme={theme}>
       <Router>
+        <Home />
         <CssBaseline />
-        <Sidebar />
-        <Navbar />
-        <Main />
+        {/* <Main />
         <Who />
         <Mission />
         <Shop />
@@ -34,7 +32,7 @@ const App = () => {
         <Event />
         <Contact />
         <Footbar />
-        <Footer />
+        <Footer /> */}
       </Router>
     </MuiThemeProvider>
   );

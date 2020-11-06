@@ -63,9 +63,11 @@ const missions = [
 export default function Mission() {
   const classes = useStyles();
   return (
-    <>
+    <div id="missions">
       <div className={classes.mission} id="mission">
-        <h3 className={classes.title}>Nos missions</h3>
+        <h3 className={classes.title} offset={-80}>
+          Nos missions
+        </h3>
         <p className={classes.body}>
           {missions.map(d => {
             return (
@@ -79,6 +81,6 @@ export default function Mission() {
           })}
         </p>
       </div>
-    </>
+    </div>
   );
 }

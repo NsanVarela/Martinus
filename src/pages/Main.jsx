@@ -117,17 +117,15 @@ export default function Main() {
     },
   };
   const [open, setOpen] = React.useState(false);
-
   const handleOpen = () => {
     setOpen(true);
   };
-
   const handleClose = () => {
     setOpen(false);
   };
 
   return (
-    <>
+    <div id="main">
       <div className={classes.main}>
         <Button className={classes.newsletterBtn} variant="contained">
           <EmailOutlinedIcon className={classes.newsletterIcon} />
@@ -167,6 +165,6 @@ export default function Main() {
           <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />
         </Slider>
       </div>
-    </>
+    </div>
   );
 }

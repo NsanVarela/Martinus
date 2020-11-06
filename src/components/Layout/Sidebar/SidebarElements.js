@@ -42,7 +42,7 @@ export const SidebarMenu = styled.ul`
   text-align: center;
 
   @media screen and (max-width: 480px) {
-    grid-template-rows: repeat(6, 40px);
+    grid-template-rows: repeat(6, 60px);
   }
 `;
 
@@ -50,13 +50,12 @@ export const SidebarLink = styled(LinkScroll)`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-decoration: none;
   list-style: none;
   transition: 0.2s ease-in-out;
   color: #fff;
   cursor: pointer;
-  text-transform: uppercase;
 
   &:hover {
     color: #01bf71;
