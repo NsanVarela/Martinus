@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
 // import ContactsIcon from '@material-ui/icons/Contacts';
-import * as contactService from '../services/contactService';
+import registerContact from '../services/contactService';
 
 import Controls from '../components/controls/Controls';
 import Popup from '../components/controls/Popup';
@@ -35,7 +35,7 @@ export default function Contact() {
   const classes = useStyles();
   const [openPopup, setOpenPopup] = React.useState(false);
   const filledForm = (contact, resetForm) => {
-    contactService.registerContact(contact);
+    registerContact(contact);
     resetForm();
     setOpenPopup(false);
   };
