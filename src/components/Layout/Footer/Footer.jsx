@@ -3,7 +3,7 @@ import { FaInstagram, FaFacebook, FaYoutube } from 'react-icons/fa';
 import { animateScroll as scroll, Link } from 'react-scroll';
 import { makeStyles } from '@material-ui/core';
 
-import logo from '../../../assets/images/logo-martinus.svg';
+import logo from '../../../assets/images/logo-martinus-blanc.svg';
 
 const useStyles = makeStyles(theme => ({
   footerContainer: {
