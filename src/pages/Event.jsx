@@ -100,7 +100,7 @@ export default function Event() {
         <Slider {...settings}>
           {events.map(item => {
             return (
-              <>
+              <div key={item.id}>
                 <img className={classes.images} src={item.imgPath} alt="évènements" />
                 <div className={classes.eventDetails}>
                   <h3 className={classes.eventTitle}>{item.title}</h3>
@@ -109,7 +109,7 @@ export default function Event() {
                     je participe à cet évènement
                   </Button>
                 </div>
-              </>
+              </div>
             );
           })}
         </Slider>

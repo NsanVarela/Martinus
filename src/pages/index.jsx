@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 
 import Sidebar from '../components/Layout/Sidebar';
 import Navbar from '../components/Layout/Navbar/Navbar';
-import Main from './Main';
+import Footer from '../components/Layout/Footer/Footer';
 import Who from './Who';
-import Mission from './Mission';
 import Shop from './Shop';
-import Testimonial from './Testimonial';
+import Main from './Main';
 import Event from './Event';
 import Contact from './Contact';
-import Footer from '../components/Layout/Footer/Footer';
+import Mission from './Mission';
+import Testimonial from './Testimonial';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);

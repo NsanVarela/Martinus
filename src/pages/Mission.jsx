@@ -71,7 +71,7 @@ export default function Mission() {
         <p className={classes.body}>
           {missions.map(d => {
             return (
-              <ul className={classes.missionContent} key={d.name}>
+              <ul className={classes.missionContent} key={d.id}>
                 <li className={classes.missionIcon}>
                   <img src={d.icon} alt="icon mission" />
                 </li>

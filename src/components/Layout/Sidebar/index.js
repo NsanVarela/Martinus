@@ -21,7 +21,7 @@ export default function Sidebar({ isOpen, toggle }) {
           <SidebarLink to="shop" onClick={toggle}>
             Boutique solidaire
           </SidebarLink>
-          <SidebarLink tto="testimonies" onClick={toggle}>
+          <SidebarLink to="testimonies" onClick={toggle}>
             Témoignages
           </SidebarLink>
           <SidebarLink to="events" onClick={toggle}>

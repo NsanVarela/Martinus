@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, Paper } from '@material-ui/core';
 
-import ContactForm from './ContactForm';
+import NewsletterForm from './NewsletterForm';
 
 const useStyles = makeStyles(theme => ({
   pageContent: {
@@ -10,14 +10,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function ContactModal() {
+export default function NewsletterModal() {
+  console.log('in');
   const classes = useStyles();
 
   return (
     <>
-      <h1>Formulaire de contact</h1>
       <Paper className={classes.pageContent}>
-        <ContactForm />
+        <NewsletterForm />
       </Paper>
     </>
   );
