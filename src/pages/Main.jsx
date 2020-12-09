@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
-import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
+// import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
