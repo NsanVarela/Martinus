@@ -4,12 +4,13 @@ import Sidebar from '../components/Layout/Sidebar';
 import Navbar from '../components/Layout/Navbar/Navbar';
 import Footer from '../components/Layout/Footer/Footer';
 import Who from './Who';
-import Shop from './Shop';
 import Main from './Main';
 import Event from './Event';
 import Contact from './Contact';
 import Mission from './Mission';
 import Testimonial from './Testimonial';
+import InfoSection from '../components/InfoSection';
+import { shopObjOne } from '../components/InfoSection/Data';
 
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,7 +25,7 @@ const Home = () => {
       <Main />
       <Who />
       <Mission />
-      <Shop />
+      <InfoSection {...shopObjOne} />
       <Testimonial />
       <Event />
       <Contact />

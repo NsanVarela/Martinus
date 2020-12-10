@@ -101,9 +101,9 @@ export default function Main() {
           className={classes.newsletterBtn}
           onClick={() => setOpenPopup(true)}
         />
-        <Typography variant="h1" className={classes.baseline2}>
+        {/* <Typography variant="h1" className={classes.baseline2}>
           Ensemble,<br></br>nous pouvons tant<br></br>accomplir
-        </Typography>
+        </Typography> */}
         <span className={classes.baseline1}>
           Éducation,<br></br> parchemin de la vie
         </span>
