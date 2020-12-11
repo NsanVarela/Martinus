@@ -11,7 +11,6 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function NewsletterModal() {
-  console.log('in');
   const classes = useStyles();
 
   return (

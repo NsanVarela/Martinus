@@ -29,7 +29,7 @@ export default function Notification(props) {
       autoHideDuration={3000}
       onClose={handleClose}
     >
-      <Alert severity={notify.type} onClose={handleClose}>
+      <Alert severity={notify.status} onClose={handleClose}>
         {notify.message}
       </Alert>
     </Snackbar>

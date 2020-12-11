@@ -34,12 +34,12 @@ const useStyles = makeStyles({
 export default function Contact() {
   const classes = useStyles();
   const [openPopup, setOpenPopup] = React.useState(false);
-  const [notify, setNotify] = React.useState({ isOpen: false, message: '', type: '' });
-  const filledForm = (contact, resetForm) => {
-    contactService(contact);
+  const [notify, setNotify] = React.useState({ isOpen: false, message: '', status: '' });
+  const filledForm = async (contact, resetForm) => {
+    const result = await contactService(contact);
     resetForm();
     setOpenPopup(false);
-    setNotify({ isOpen: true, message: 'Soumis avec succès', type: 'success' });
+    setNotify({ isOpen: true, message: result.message, status: result.status });
   };
 
   return (

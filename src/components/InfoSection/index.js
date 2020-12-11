@@ -7,6 +7,7 @@ import Controls from '../controls/Controls';
 import shopService from '../../services/shopService';
 import Popup from '../controls/Popup';
 import ShopForm from '../../modals/shop/ShopForm';
+import Notification from '../controls/Notification';
 
 import {
   InfoContainer,
@@ -41,10 +42,12 @@ const useStyles = makeStyles({
 const InfoSection = ({ lightBg, id, imgStart, topLine, lightText, headline, darkText, description, alt }) => {
   const classes = useStyles();
   const [openPopup, setOpenPopup] = React.useState(false);
-  const filledForm = (cart, resetForm) => {
-    shopService(cart);
+  const [notify, setNotify] = React.useState({ isOpen: false, message: '', status: '' });
+  const filledForm = async (cart, resetForm) => {
+    const result = await shopService(cart);
     resetForm();
     setOpenPopup(false);
+    setNotify({ isOpen: true, message: result.message, status: result.status });
   };
   return (
     <>
@@ -83,6 +86,7 @@ const InfoSection = ({ lightBg, id, imgStart, topLine, lightText, headline, dark
           <ShopForm filledForm={filledForm} />
         </Popup>
       </InfoContainer>
+      <Notification notify={notify} setNotify={setNotify} />
     </>
   );
 };

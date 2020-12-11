@@ -1,14 +1,15 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 // import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import imgMain2 from '../assets/images/main/imgMain2.png';
 import Controls from '../components/controls/Controls';
-import Popup from '../components/controls/Popup';
+import SimplePopup from '../components/controls/SimplePopup';
 import NewsletterForm from '../modals/newsletter/NewsletterForm';
 import newsletterService from '../services/newsletterService';
+import Notification from '../components/controls/Notification';
 
 const useStyles = makeStyles({
   main: {
@@ -86,10 +87,12 @@ export default function Main() {
     },
   };
   const [openPopup, setOpenPopup] = React.useState(false);
-  const filledForm = (contact, resetForm) => {
-    newsletterService(contact);
+  const [notify, setNotify] = React.useState({ isOpen: false, message: '', status: '' });
+  const filledForm = async (contact, resetForm) => {
+    const result = await newsletterService(contact);
     resetForm();
     setOpenPopup(false);
+    setNotify({ isOpen: true, message: result.message, status: result.status });
   };
 
   return (
@@ -101,25 +104,26 @@ export default function Main() {
           className={classes.newsletterBtn}
           onClick={() => setOpenPopup(true)}
         />
-        {/* <Typography variant="h1" className={classes.baseline2}>
+        <Typography variant="h1" className={classes.baseline2}>
           Ensemble,<br></br>nous pouvons tant<br></br>accomplir
-        </Typography> */}
-        <span className={classes.baseline1}>
+        </Typography>
+        {/* <span className={classes.baseline1}>
           Éducation,<br></br> parchemin de la vie
-        </span>
+        </span> */}
         {/* <Controls.Button
           text="Faire un don"
           variant="contained"
           className={classes.donationBtn}
           onClick={() => setOpenPopup(true)}
         /> */}
-        <Popup openPopup={openPopup} setOpenPopup={setOpenPopup}>
+        <SimplePopup openPopup={openPopup} setOpenPopup={setOpenPopup}>
           <NewsletterForm filledForm={filledForm} />
-        </Popup>
+        </SimplePopup>
         <Slider {...settings}>
           <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />
           <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />
         </Slider>
+        <Notification notify={notify} setNotify={setNotify} />
       </div>
     </div>
   );

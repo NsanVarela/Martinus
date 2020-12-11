@@ -1,8 +1,10 @@
 import axios from 'axios';
 
 export default function shopService(cart) {
-  axios.post(`http://localhost:3000/shop`, { cart }).then(res => {
-    // console.log('res.data => ', cart);
-    return res.data.message;
+  return new Promise(resolve => {
+    axios
+      .post(`http://localhost:3000/shop`, { cart })
+      .then(res => resolve(res.data))
+      .catch(() => resolve({ message: `Le service n'est pas disponible pour le moment`, status: 'warning' }));
   });
 }

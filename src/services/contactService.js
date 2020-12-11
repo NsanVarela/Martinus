@@ -1,8 +1,10 @@
 import axios from 'axios';
 
 export default function contactService(contact) {
-  axios.post(`http://localhost:3000/contact`, { contact }).then(res => {
-    console.log('res.data => ', res.data);
-    return res.data.message;
+  return new Promise(resolve => {
+    axios
+      .post(`http://localhost:3000/contact`, { contact })
+      .then(res => resolve(res.data))
+      .catch(() => resolve({ message: `Le service n'est pas disponible pour le moment`, status: 'warning' }));
   });
 }
