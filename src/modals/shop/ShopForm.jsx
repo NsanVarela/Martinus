@@ -1,6 +1,7 @@
 /* eslint-disable consistent-return */
 /* eslint-disable no-use-before-define */
 import React from 'react';
+
 import { useForm, Form } from '../../components/useForm';
 import Controls from '../../components/controls/Controls';
 
@@ -24,6 +25,18 @@ const itemNumber = [
     id: '2',
     title: 'Deux',
   },
+  {
+    id: '3',
+    title: 'Trois',
+  },
+  {
+    id: '4',
+    title: 'Quatre',
+  },
+  {
+    id: '5',
+    title: 'Cinq',
+  },
 ];
 
 const initialFieldsValues = {
@@ -32,7 +45,8 @@ const initialFieldsValues = {
   city: ``,
   email: ``,
   phoneNumber: ``,
-  gender: 'male',
+  gender: '',
+  itemNmber: '',
   messageDate: new Date(),
 };
 
@@ -108,14 +122,14 @@ export default function ShopForm(props) {
       />
 
       <Controls.Select
-        name="cart"
+        name="itemNmber"
         label="Nombre de t-shirt"
-        value={values.cart}
+        value={values.itemNmber}
         onChange={handleInputChange}
         options={itemNumber}
       />
 
-      <div style={{ marginTop: '30px', display: 'flex', justifyContent: 'flex-end' }}>
+      <div>
         <Controls.Button type="submit" text="Valider" onClick={validate} />
         <Controls.Button text="Réinitialiser" color="default" onClick={resetForm} />
       </div>
