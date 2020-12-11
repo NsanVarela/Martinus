@@ -1,11 +1,11 @@
 import React from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
-// import ContactsIcon from '@material-ui/icons/Contacts';
-import contactService from '../services/contactService';
 
+import contactService from '../services/contactService';
+import ContactForm from '../modals/contact/ContactForm';
 import Controls from '../components/controls/Controls';
 import Popup from '../components/controls/Popup';
-import ContactForm from '../modals/contact/ContactForm';
+import Notification from '../components/controls/Notification';
 
 const useStyles = makeStyles({
   contact: {
@@ -34,10 +34,12 @@ const useStyles = makeStyles({
 export default function Contact() {
   const classes = useStyles();
   const [openPopup, setOpenPopup] = React.useState(false);
+  const [notify, setNotify] = React.useState({ isOpen: false, message: '', type: '' });
   const filledForm = (contact, resetForm) => {
     contactService(contact);
     resetForm();
     setOpenPopup(false);
+    setNotify({ isOpen: true, message: 'Soumis avec succès', type: 'success' });
   };
 
   return (
@@ -48,13 +50,13 @@ export default function Contact() {
       <Controls.Button
         text="Nous contacter"
         variant="contained"
-        // startIcon={<ContactsIcon />}
         className={classes.contactBtn}
         onClick={() => setOpenPopup(true)}
       />
       <Popup title="Formulaire de contact" openPopup={openPopup} setOpenPopup={setOpenPopup}>
         <ContactForm filledForm={filledForm} />
       </Popup>
+      <Notification notify={notify} setNotify={setNotify} />
     </div>
   );
 }

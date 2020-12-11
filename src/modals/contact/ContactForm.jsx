@@ -50,7 +50,6 @@ export default function ContactForm(props) {
         onChange={handleInputChange}
         error={errors.fullName}
       />
-
       <Controls.Input
         label="Prénom"
         name="firstName"
@@ -58,9 +57,7 @@ export default function ContactForm(props) {
         onChange={handleInputChange}
         error={errors.firstName}
       />
-
       <Controls.Input label="Ville" name="city" value={values.city} onChange={handleInputChange} error={errors.city} />
-
       <Controls.Input
         label="Email"
         name="email"
@@ -68,7 +65,6 @@ export default function ContactForm(props) {
         onChange={handleInputChange}
         error={errors.email}
       />
-
       <Controls.Input
         label="Téléphone"
         name="phoneNumber"
@@ -76,7 +72,6 @@ export default function ContactForm(props) {
         onChange={handleInputChange}
         error={errors.phoneNumber}
       />
-
       <Controls.Textarea
         label="Message"
         name="message"
@@ -84,7 +79,6 @@ export default function ContactForm(props) {
         onChange={handleInputChange}
         // error={errors.message}
       />
-
       <div style={{ marginTop: '30px', display: 'flex', justifyContent: 'flex-end' }}>
         <Controls.Button type="submit" text="Valider" onClick={validate} />
         <Controls.Button text="Réinitialiser" color="default" onClick={resetForm} />
