@@ -6,9 +6,10 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import imgMain2 from '../assets/images/main/imgMain2.png';
 import Controls from '../components/controls/Controls';
+import Popup from '../components/controls/Popup';
 import SimplePopup from '../components/controls/SimplePopup';
 import NewsletterForm from '../modals/newsletter/NewsletterForm';
-import DonationModal from '../modals/donation/DonationModal';
+import DonationForm from '../modals/donation/DonationForm';
 import newsletterService from '../services/newsletterService';
 import Notification from '../components/controls/Notification';
 
@@ -69,19 +70,20 @@ const useStyles = makeStyles({
     borderRadius: '50%',
     display: 'inline-block',
   },
-  // donationForm: {
-  //   width: '100%',
-  //   height: '750px',
-  //   border: 'none',
-  // },
-  // donationBtn: {
-  //   width: '100%',
-  //   height: '70px',
-  //   border: 'none',
-  // },
   by: {
-    width: '100%',
-    textAlign: 'center',
+    color: '#fff',
+    right: '6%',
+    width: '185px',
+    bottom: '18%',
+    position: 'absolute',
+    background: 'none',
+    textAlign: 'left',
+    zIndex: '10',
+    fontSize: '10px',
+  },
+  byLink: {
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });
 
@@ -102,13 +104,13 @@ export default function Main() {
     },
   };
   const [openNewsPopup, setOpenNewsPopup] = useState(false);
-  const [openDonationPopup, setOpenDonationPopup] = useState(false);
+  const [openPopup, setOpenPopup] = useState(false);
   const [notify, setNotify] = useState({ isOpen: false, message: '', status: '' });
   const filledForm = async (contact, resetForm) => {
     const result = await newsletterService(contact);
     resetForm();
     setOpenNewsPopup(false);
-    setOpenDonationPopup(false);
+    setOpenPopup(false);
     setNotify({ isOpen: true, message: result.message, status: result.status });
   };
 
@@ -125,12 +127,6 @@ export default function Main() {
         <Typography variant="h1" className={classes.baseline2}>
           Ensemble,<br></br>nous pouvons tant<br></br>accomplir
         </Typography>
-        <div className={classes.by}>
-          Propulsé par
-          <a href="https://www.helloasso.com" rel="nofollow">
-            HelloAsso
-          </a>
-        </div>
         {/* <span className={classes.baseline1}>
           Éducation,<br></br> parchemin de la vie
         </span> */}
@@ -138,8 +134,14 @@ export default function Main() {
           text="Faire un don"
           variant="contained"
           className={classes.donationBtn}
-          onClick={() => setOpenDonationPopup(true)}
+          onClick={() => setOpenPopup(true)}
         />
+        <div className={classes.by}>
+          Propulsé par&ensp;
+          <a className={classes.byLink} href="https://www.helloasso.com" rel="nofollow">
+            HelloAsso
+          </a>
+        </div>
         {/* <iframe
           title="Bouton de don"
           id="haWidget"
@@ -151,9 +153,9 @@ export default function Main() {
         <SimplePopup openPopup={openNewsPopup} setOpenPopup={setOpenNewsPopup}>
           <NewsletterForm filledForm={filledForm} />
         </SimplePopup>
-        <SimplePopup openPopup={openDonationPopup} setOpenPopup={setOpenDonationPopup}>
-          <DonationModal />
-        </SimplePopup>
+        <Popup openPopup={openPopup} setOpenPopup={setOpenPopup}>
+          <DonationForm filledForm={filledForm} />
+        </Popup>
         <Slider {...settings}>
           <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />
           <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />
