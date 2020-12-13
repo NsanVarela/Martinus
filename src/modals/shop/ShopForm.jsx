@@ -15,7 +15,6 @@ const genderItems = [
     title: 'Femme',
   },
 ];
-
 const itemNumber = [
   {
     id: '1',
@@ -38,7 +37,6 @@ const itemNumber = [
     title: 'Cinq',
   },
 ];
-
 const initialFieldsValues = {
   fullName: ``,
   firstName: ``,
@@ -52,7 +50,6 @@ const initialFieldsValues = {
 
 export default function ShopForm(props) {
   const { filledForm } = props;
-
   const validate = (fieldValues = values) => {
     const temp = { ...errors };
     const firstNameRegex = /^([a-zA-Z\u00C0-\u00FF]+['-]?[a-zA-Z\u00C0-\u00FF]+){1,30}$/;
@@ -66,12 +63,9 @@ export default function ShopForm(props) {
     setErrors({
       ...temp,
     });
-
     if (fieldValues === values) return Object.values(temp).every(x => x === ``);
   };
-
   const { values, errors, setErrors, handleInputChange, resetForm } = useForm(initialFieldsValues, true, validate);
-
   const handleSubmit = e => {
     e.preventDefault();
     if (validate()) filledForm(values, resetForm);
@@ -86,7 +80,6 @@ export default function ShopForm(props) {
         onChange={handleInputChange}
         error={errors.fullName}
       />
-
       <Controls.Input
         label="Prénom"
         name="firstName"
@@ -94,9 +87,7 @@ export default function ShopForm(props) {
         onChange={handleInputChange}
         error={errors.firstName}
       />
-
       <Controls.Input label="Ville" name="city" value={values.city} onChange={handleInputChange} error={errors.city} />
-
       <Controls.Input
         label="Email"
         name="email"
@@ -104,7 +95,6 @@ export default function ShopForm(props) {
         onChange={handleInputChange}
         error={errors.email}
       />
-
       <Controls.Input
         label="Téléphone"
         name="phoneNumber"
@@ -112,7 +102,6 @@ export default function ShopForm(props) {
         onChange={handleInputChange}
         error={errors.phoneNumber}
       />
-
       <Controls.RadioGroup
         name="gender"
         label="Genre"
@@ -120,7 +109,6 @@ export default function ShopForm(props) {
         onChange={handleInputChange}
         items={genderItems}
       />
-
       <Controls.Select
         name="itemNmber"
         label="Nombre de t-shirt"
@@ -128,7 +116,6 @@ export default function ShopForm(props) {
         onChange={handleInputChange}
         options={itemNumber}
       />
-
       <div>
         <Controls.Button type="submit" text="Valider" onClick={validate} />
         <Controls.Button text="Réinitialiser" color="default" onClick={resetForm} />

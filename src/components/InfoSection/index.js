@@ -8,7 +8,6 @@ import shopService from '../../services/shopService';
 import Popup from '../controls/Popup';
 import ShopForm from '../../modals/shop/ShopForm';
 import Notification from '../controls/Notification';
-
 import {
   InfoContainer,
   InfoWrapper,

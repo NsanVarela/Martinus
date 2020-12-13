@@ -44,11 +44,6 @@ export default function NewsletterForm(props) {
         onChange={handleInputChange}
         error={errors.email}
       />
-
-      {/* <div style={{ marginTop: '30px', display: 'flex', justifyContent: 'flex-end' }}>
-        <Controls.Button type="submit" text="Valider" onClick={validate} />
-        <Controls.Button text="Réinitialiser" color="default" onClick={resetForm} />
-      </div> */}
     </Form>
   );
 }

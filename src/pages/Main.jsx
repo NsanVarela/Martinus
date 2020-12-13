@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles, Typography } from '@material-ui/core';
 // import EmailOutlinedIcon from '@material-ui/icons/EmailOutlined';
 import 'slick-carousel/slick/slick.css';
@@ -8,6 +8,7 @@ import imgMain2 from '../assets/images/main/imgMain2.png';
 import Controls from '../components/controls/Controls';
 import SimplePopup from '../components/controls/SimplePopup';
 import NewsletterForm from '../modals/newsletter/NewsletterForm';
+import DonationModal from '../modals/donation/DonationModal';
 import newsletterService from '../services/newsletterService';
 import Notification from '../components/controls/Notification';
 
@@ -68,6 +69,20 @@ const useStyles = makeStyles({
     borderRadius: '50%',
     display: 'inline-block',
   },
+  // donationForm: {
+  //   width: '100%',
+  //   height: '750px',
+  //   border: 'none',
+  // },
+  // donationBtn: {
+  //   width: '100%',
+  //   height: '70px',
+  //   border: 'none',
+  // },
+  by: {
+    width: '100%',
+    textAlign: 'center',
+  },
 });
 
 export default function Main() {
@@ -86,12 +101,14 @@ export default function Main() {
       );
     },
   };
-  const [openPopup, setOpenPopup] = React.useState(false);
-  const [notify, setNotify] = React.useState({ isOpen: false, message: '', status: '' });
+  const [openNewsPopup, setOpenNewsPopup] = useState(false);
+  const [openDonationPopup, setOpenDonationPopup] = useState(false);
+  const [notify, setNotify] = useState({ isOpen: false, message: '', status: '' });
   const filledForm = async (contact, resetForm) => {
     const result = await newsletterService(contact);
     resetForm();
-    setOpenPopup(false);
+    setOpenNewsPopup(false);
+    setOpenDonationPopup(false);
     setNotify({ isOpen: true, message: result.message, status: result.status });
   };
 
@@ -102,22 +119,40 @@ export default function Main() {
           text="Neswletter"
           variant="contained"
           className={classes.newsletterBtn}
-          onClick={() => setOpenPopup(true)}
+          onClick={() => setOpenNewsPopup(true)}
         />
+        <donationSection></donationSection>
         <Typography variant="h1" className={classes.baseline2}>
           Ensemble,<br></br>nous pouvons tant<br></br>accomplir
         </Typography>
+        <div className={classes.by}>
+          Propulsé par
+          <a href="https://www.helloasso.com" rel="nofollow">
+            HelloAsso
+          </a>
+        </div>
         {/* <span className={classes.baseline1}>
           Éducation,<br></br> parchemin de la vie
         </span> */}
-        {/* <Controls.Button
+        <Controls.Button
           text="Faire un don"
           variant="contained"
           className={classes.donationBtn}
-          onClick={() => setOpenPopup(true)}
-        /> */}
-        <SimplePopup openPopup={openPopup} setOpenPopup={setOpenPopup}>
+          onClick={() => setOpenDonationPopup(true)}
+        />
+        {/* <iframe
+          title="Bouton de don"
+          id="haWidget"
+          allowTransparency="true"
+          src="https://helloasso.com/associations/martinu-s-man-alende/formulaires/2/widget-bouton"
+          className={classes.donationBtn}
+          onLoad="window.scroll(0, this.offsetTop)"
+        ></iframe> */}
+        <SimplePopup openPopup={openNewsPopup} setOpenPopup={setOpenNewsPopup}>
           <NewsletterForm filledForm={filledForm} />
+        </SimplePopup>
+        <SimplePopup openPopup={openDonationPopup} setOpenPopup={setOpenDonationPopup}>
+          <DonationModal />
         </SimplePopup>
         <Slider {...settings}>
           <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />

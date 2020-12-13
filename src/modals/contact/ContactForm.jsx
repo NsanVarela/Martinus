@@ -16,7 +16,6 @@ const initialFieldsValues = {
 
 export default function ContactForm(props) {
   const { filledForm } = props;
-
   const validate = (fieldValues = values) => {
     const temp = { ...errors };
     const firstNameRegex = /^([a-zA-Z\u00C0-\u00FF]+['-]?[a-zA-Z\u00C0-\u00FF]+){1,30}$/;
@@ -30,12 +29,10 @@ export default function ContactForm(props) {
     setErrors({
       ...temp,
     });
-
     if (fieldValues === values) return Object.values(temp).every(x => x === ``);
   };
 
   const { values, errors, setErrors, handleInputChange, resetForm } = useForm(initialFieldsValues, true, validate);
-
   const handleSubmit = e => {
     e.preventDefault();
     if (validate()) filledForm(values, resetForm);
