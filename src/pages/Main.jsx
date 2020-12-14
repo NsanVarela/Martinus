@@ -40,13 +40,13 @@ const useStyles = makeStyles({
     left: '50%',
   },
   donationBtn: {
-    zIndex: 10,
-    backgroundColor: '#0cc722',
-    color: '#FFFFFF',
-    fontWeight: 'bold',
+    zIndex: 100,
     position: 'absolute',
     bottom: '20%',
-    right: '10%',
+    left: '35%',
+    width: '100%',
+    height: '70px',
+    border: 'none',
   },
   newsletterBtn: {
     zIndex: 10,
@@ -130,26 +130,19 @@ export default function Main() {
         {/* <span className={classes.baseline1}>
           Éducation,<br></br> parchemin de la vie
         </span> */}
-        <Controls.Button
-          text="Faire un don"
-          variant="contained"
+        <iframe
+          title="Bouton de don"
+          id="haWidget"
+          allowTransparency="true"
+          src="https://www.helloasso.com/associations/martinu-s-man-elende/formulaires/1/widget-bouton"
           className={classes.donationBtn}
-          onClick={() => setOpenPopup(true)}
-        />
+        ></iframe>
         <div className={classes.by}>
           Propulsé par&ensp;
           <a className={classes.byLink} href="https://www.helloasso.com" rel="nofollow">
             HelloAsso
           </a>
         </div>
-        {/* <iframe
-          title="Bouton de don"
-          id="haWidget"
-          allowTransparency="true"
-          src="https://helloasso.com/associations/martinu-s-man-alende/formulaires/2/widget-bouton"
-          className={classes.donationBtn}
-          onLoad="window.scroll(0, this.offsetTop)"
-        ></iframe> */}
         <SimplePopup openPopup={openNewsPopup} setOpenPopup={setOpenNewsPopup}>
           <NewsletterForm filledForm={filledForm} />
         </SimplePopup>

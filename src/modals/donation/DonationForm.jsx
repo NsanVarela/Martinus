@@ -18,7 +18,7 @@ export default function DonationForm() {
         id="haWidget"
         allowTransparency="true"
         scrolling="auto"
-        src="https://helloasso.com/associations/martinu-s-man-alende/formulaires/2/widget"
+        src="https://www.helloasso.com/associations/martinu-s-man-elende/formulaires/1/widget"
         className={classes.donationForm}
         onLoad="window.scroll(0, this.offsetTop)"
       ></iframe>
