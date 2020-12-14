@@ -5,13 +5,13 @@ import { useForm, Form } from '../../components/useForm';
 import Controls from '../../components/controls/Controls';
 
 const initialFieldsValues = {
-  fullName: ``,
+  lastName: ``,
   firstName: ``,
   city: ``,
   email: ``,
   phoneNumber: ``,
   message: ``,
-  messageDate: new Date(),
+  // messageDate: new Date(),
 };
 
 export default function ContactForm(props) {
@@ -41,11 +41,11 @@ export default function ContactForm(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Controls.Input
-        name="fullName"
+        name="lastName"
         label="Nom"
-        value={values.fullName}
+        value={values.lastName}
         onChange={handleInputChange}
-        error={errors.fullName}
+        error={errors.lastName}
       />
       <Controls.Input
         label="Prénom"

@@ -38,13 +38,13 @@ const itemNumber = [
   },
 ];
 const initialFieldsValues = {
-  fullName: ``,
+  lastName: ``,
   firstName: ``,
   city: ``,
   email: ``,
   phoneNumber: ``,
   gender: '',
-  itemNmber: '',
+  itemNumber: '',
   messageDate: new Date(),
 };
 
@@ -74,30 +74,30 @@ export default function ShopForm(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Controls.Input
-        name="fullName"
+        name="lastName"
         label="Nom"
-        value={values.fullName}
+        value={values.lastName}
         onChange={handleInputChange}
-        error={errors.fullName}
+        error={errors.lastName}
       />
       <Controls.Input
-        label="Prénom"
         name="firstName"
+        label="Prénom"
         value={values.firstName}
         onChange={handleInputChange}
         error={errors.firstName}
       />
       <Controls.Input label="Ville" name="city" value={values.city} onChange={handleInputChange} error={errors.city} />
       <Controls.Input
-        label="Email"
         name="email"
+        label="Email"
         value={values.email}
         onChange={handleInputChange}
         error={errors.email}
       />
       <Controls.Input
-        label="Téléphone"
         name="phoneNumber"
+        label="Téléphone"
         value={values.phoneNumber}
         onChange={handleInputChange}
         error={errors.phoneNumber}
@@ -110,9 +110,9 @@ export default function ShopForm(props) {
         items={genderItems}
       />
       <Controls.Select
-        name="itemNmber"
+        name="itemNumber"
         label="Nombre de t-shirt"
-        value={values.itemNmber}
+        value={values.itemNumber}
         onChange={handleInputChange}
         options={itemNumber}
       />
