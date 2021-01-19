@@ -4,7 +4,7 @@ import { MuiThemeProvider } from '@material-ui/core/styles';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import './App.css';
-import theme from './components/DesignUI/Theme';
+import theme from './Components/DesignUI/Theme';
 
 import Home from './pages';
 

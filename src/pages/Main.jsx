@@ -5,13 +5,13 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import imgMain2 from '../assets/images/main/imgMain2.png';
-import Controls from '../components/controls/Controls';
-import Popup from '../components/controls/Popup';
-import SimplePopup from '../components/controls/SimplePopup';
+import Controls from '../Components/controls/Controls';
+import Popup from '../Components/controls/Popup';
+import SimplePopup from '../Components/controls/SimplePopup';
 import NewsletterForm from '../modals/newsletter/NewsletterForm';
 import DonationForm from '../modals/donation/DonationForm';
 import newsletterService from '../services/newsletterService';
-import Notification from '../components/controls/Notification';
+import Notification from '../Components/controls/Notification';
 
 const useStyles = makeStyles({
   main: {

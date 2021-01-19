@@ -15,26 +15,43 @@ import Button from '@material-ui/core/Button';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import events from '../data/Events';
+import imageEvent from '../assets/images/events/imgEvent3.png';
 
-const useStyles = makeStyles({
+const description = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore 
+enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
+
+const useStyles = makeStyles(theme => ({
   event: {
     backgroundColor: '#FFFFFF',
     height: '100%',
     padding: '5% 22% 5% 22%',
     position: 'relative',
     display: 'flex',
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: '2%',
+      paddingRight: '2%',
+      flexDirection: 'column-reverse',
+    },
   },
   imgContainer: {
     width: '40%',
     marginRight: '5%',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      marginRight: 0,
+    },
   },
   images: {
     maxHeight: '430px',
+    marginRight: '5%',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
   },
   eventDetails: {
     display: 'flex',
@@ -43,6 +60,10 @@ const useStyles = makeStyles({
   },
   eventTitle: {
     color: '#333333',
+    minWidth: '50%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   eventCorps: {
     textAlign: 'justify',
@@ -54,6 +75,15 @@ const useStyles = makeStyles({
     fontWeight: 'bold',
     maxWidth: '280px',
     marginBottom: '10%',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+  },
+  registerMobileBtn: {
+    display: 'none',
+    [theme.breakpoints.down('sm')]: {
+      display: 'block',
+    },
   },
   select: {
     marginTop: '10%',
@@ -63,15 +93,7 @@ const useStyles = makeStyles({
     marginLeft: '5%',
     minWidth: '20%',
   },
-});
-
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-};
+}));
 
 export default function Event() {
   const classes = useStyles();
@@ -95,24 +117,19 @@ export default function Event() {
   };
 
   return (
-    <div className={classes.event} id="events">
-      <div className={classes.imgContainer}>
-        <Slider {...settings}>
-          {events.map(item => {
-            return (
-              <div key={item.id}>
-                <img className={classes.images} src={item.imgPath} alt="évènements" />
-                <div className={classes.eventDetails}>
-                  <h3 className={classes.eventTitle}>{item.title}</h3>
-                  <p className={classes.eventCorps}>{item.description}</p>
-                  <Button className={classes.registerBtn} variant="contained" onClick={handleClickOpenDialog}>
-                    je participe à cet évènement
-                  </Button>
-                </div>
-              </div>
-            );
-          })}
-        </Slider>
+    <>
+      <div className={classes.event} id="events">
+        <Button className={classes.registerMobileBtn} variant="contained" onClick={handleClickOpenDialog}>
+          je participe à cet évènement
+        </Button>
+        <img className={classes.images} src={imageEvent} alt="évènements" />
+        <div className={classes.eventTitle}>
+          <h3 className={classes.eventTitleContent}>TITRE EVENEMENT</h3>
+          <p className={classes.eventCorps}>{description}</p>
+          <Button className={classes.registerBtn} variant="contained" onClick={handleClickOpenDialog}>
+            je participe à cet évènement
+          </Button>
+        </div>
       </div>
       <Dialog open={openDialog} onClose={handleCloseDialog} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Réservation</DialogTitle>
@@ -200,6 +217,6 @@ export default function Event() {
           </Button>
         </DialogActions>
       </Dialog>
-    </div>
+    </>
   );
 }

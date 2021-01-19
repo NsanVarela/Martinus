@@ -3,9 +3,9 @@ import { makeStyles, Typography } from '@material-ui/core';
 
 import contactService from '../services/contactService';
 import ContactForm from '../modals/contact/ContactForm';
-import Controls from '../components/controls/Controls';
-import Popup from '../components/controls/Popup';
-import Notification from '../components/controls/Notification';
+import Controls from '../Components/controls/Controls';
+import Popup from '../Components/controls/Popup';
+import Notification from '../Components/controls/Notification';
 
 const useStyles = makeStyles({
   contact: {

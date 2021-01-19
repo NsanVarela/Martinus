@@ -2,8 +2,8 @@
 /* eslint-disable no-use-before-define */
 import React from 'react';
 
-import { useForm, Form } from '../../components/useForm';
-import Controls from '../../components/controls/Controls';
+import { useForm, Form } from '../../Components/useForm';
+import Controls from '../../Components/controls/Controls';
 
 const genderItems = [
   {
