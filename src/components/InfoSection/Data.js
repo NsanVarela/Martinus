@@ -1,5 +1,5 @@
 const shopObjOne = {
-  id: 'about',
+  id: 'shop',
   lightBg: true,
   lightText: false,
   lightTextDesc: false,

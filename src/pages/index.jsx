@@ -25,6 +25,7 @@ const Home = () => {
       <Main />
       <Who />
       <Mission />
+      {/* <Shop /> */}
       <InfoSection {...shopObjOne} />
       <Testimonial />
       <Event />
