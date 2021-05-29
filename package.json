@@ -1,22 +1,63 @@
 {
   "name": "martinus",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
-  "dependencies": {
-    "@material-ui/core": "^4.11.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "react-scroll": "^1.8.0"
-  },
   "scripts": {
     "start": "PORT=8080 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint:fix": "pretty-quick && eslint --fix src --ext .js,.jsx",
+    "lint": "eslint src --ext .js,.jsx"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NsanVarela/martinus.git"
+  },
+  "keywords": [
+    "react",
+    "material-design"
+  ],
+  "description": "Martinues Website",
+  "author": "NSV",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NsanVarela/martinus.git"
+  },
+  "homepage": "/",
+  "dependencies": {
+    "@material-ui/core": "^4.11.2",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "axios": "^0.20.0",
+    "formik-material-ui": "^3.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-icons": "^3.11.0",
+    "react-player": "^2.6.1",
+    "react-responsive": "^8.1.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.1",
+    "react-scroll": "^1.8.0",
+    "react-slick": "^0.27.4",
+    "react-spring": "^8.0.27",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.16.0",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.17.0",
+    "pretty-quick": "^1.10.0"
   },
   "eslintConfig": {
     "extends": "react-app"
