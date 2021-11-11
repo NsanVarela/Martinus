@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   title: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: '1rem'
+    marginBottom: '1rem',
   },
   text: {
     marginTop: '2%',

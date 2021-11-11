@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
       maxWidth: '100%',
       fontSize: '0.6rem',
       paddingTop: '0.5rem',
-      lineHeight: '1.5'
+      lineHeight: '1.5',
     },
   },
 }));
