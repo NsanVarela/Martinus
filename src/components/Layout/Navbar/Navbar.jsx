@@ -48,6 +48,9 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     padding: '0 1.7rem',
     maxWidth: '82.2rem',
+    [theme.breakpoints.down('md')]: {
+      alignItems: 'flex-start'
+    },
   },
   navMenu: {
     display: 'flex',

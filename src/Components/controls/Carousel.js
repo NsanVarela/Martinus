@@ -46,10 +46,6 @@ const useStyles = makeStyles(theme => ({
   carouselImg: {
     maxWidth: '20rem',
     marginRight: '1rem',
-    // backgroundPosition: 'center',
-    // backgroundRepeat: 'no-repeat',
-    // backgroundSize: 'cover',
-    // display: 'flex',
     [theme.breakpoints.down('sm')]: {
       margin: 'auto',
       width: '20rem'

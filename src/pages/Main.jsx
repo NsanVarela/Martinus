@@ -47,15 +47,15 @@ const useStyles = makeStyles(theme => ({
     },
   },
   donationBtn: {
-    zIndex: 100,
+    zIndex: 1,
     position: 'absolute',
     bottom: '20%',
     left: '78%',
     height: '70px',
     border: 'none',
     [theme.breakpoints.down('sm')]: {
-      display: 'contents',
-      left: '7rem',
+      display: 'flex',
+      left: '5rem',
       position: 'absolute',
       bottom: '1rem',
       height: '4.5rem',
