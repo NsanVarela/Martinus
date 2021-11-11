@@ -9,7 +9,7 @@ import logo from '../../../assets/images/logo-martinus.svg';
 
 const useStyles = makeStyles(theme => ({
   nav: {
-    height: '80px',
+    height: '5.7rem',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
   },
   navImg: {
-    width: '80%',
+    width: '5rem',
   },
   mobileIcon: {
     display: 'none',
@@ -43,24 +43,24 @@ const useStyles = makeStyles(theme => ({
   navbarContainer: {
     display: 'flex',
     justifyContent: 'space-between',
-    height: '80px',
+    height: '5.7rem',
     zIndex: 1,
     width: '100%',
-    padding: '0 24px',
-    maxWidth: '1150px',
+    padding: '0 1.7rem',
+    maxWidth: '82.2rem',
   },
   navMenu: {
     display: 'flex',
     alignItems: 'center',
     listStyle: 'none',
     textAlign: 'center',
-    marginRight: '-22px',
+    marginRight: '-1.6rem',
     [theme.breakpoints.down('md')]: {
       display: 'none',
     },
   },
   navItem: {
-    height: '80px',
+    height: '5.7rem',
   },
 }));
 

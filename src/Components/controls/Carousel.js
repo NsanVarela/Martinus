@@ -24,26 +24,42 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     height: '500px',
     display: 'flex',
-    margin: 'auto',
+    margin: 'auto',[theme.breakpoints.down('sm')]: {
+      height: 'fit-content',
+    },
   },
   carouselInner: {
     width: '100%',
     display: 'flex',
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+    },
   },
   eventContent: {
     height: '90%',
     display: 'flex',
     flexDirection: 'column',
+    [theme.breakpoints.down('sm')]: {
+      
+    },
   },
   carouselImg: {
-    width: '40%',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    display: 'flex',
+    width: '120rem',
+    marginRight: '1rem',
+    // backgroundPosition: 'center',
+    // backgroundRepeat: 'no-repeat',
+    // backgroundSize: 'cover',
+    // display: 'flex',
+    [theme.breakpoints.down('sm')]: {
+      margin: 'auto',
+      width: '20rem'
+    },
   },
   eventImg: {
     width: '100%',
+    [theme.breakpoints.down('sm')]: {
+      width: '20rem'
+    },
   },
   eventTitle: {
     marginBottom: '5%',
@@ -53,13 +69,13 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '5%',
   },
   eventDate: {
-    marginBottom: '10%',
+    marginBottom: '1rem',
   },
   actions: {
     width: '20%',
     height: '10%',
-    display: 'flex',
-    marginTop: 'auto',
+    //display: 'flex',
+    display: 'none'
   },
   left: {
     flex: '5%',
@@ -80,12 +96,13 @@ const useStyles = makeStyles(theme => ({
     cursor: 'pointer',
   },
   registerBtn: {
+    display: 'none',
     zIndex: 10,
     backgroundColor: '#0cc722',
     color: '#FFFFFF',
     fontWeight: 'bold',
     maxWidth: '280px',
-    marginBottom: '10%',
+    marginBottom: '1rem',
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
@@ -133,7 +150,7 @@ export default function Carousel() {
       <div className={classes.carousel}>
         <div className={classes.carouselInner}>
           <div className={classes.carouselImg}>
-            <img src={events[currentImg].imgPath.default} alt="photographie de l'évènement" />
+            <img src={events[currentImg].imgPath} className={classes.eventImg} alt="photographie de l'évènement" />
           </div>
           <div className={classes.eventContent}>
             <div className={classes.eventTitle}>

@@ -16,6 +16,7 @@ const useStyles = makeStyles({
   title: {
     textAlign: 'center',
     color: '#333333',
+    marginBottom: '1rem'
   },
   text: {
     marginTop: '2%',
@@ -69,11 +70,11 @@ export default function Testimonial() {
     <div id="testimonial">
       <div className={classes.testimonial}>
         <h3 className={classes.title}>Ils nous soutiennent.</h3>
-        <p className={classes.text}>
+        {/* <p className={classes.text}>
           Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
           dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit
           amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora qvoluptatem.
-        </p>
+        </p> */}
         <Slider className={classes.slider} {...settings}>
           <ReactPlayer
             className={classes.player}

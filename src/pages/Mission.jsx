@@ -1,11 +1,11 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core';
 import imgMission1 from '../assets/images/missions/imgMission1.svg';
 import imgMission2 from '../assets/images/missions/imgMission2.svg';
 import imgMission3 from '../assets/images/missions/imgMission3.svg';
 import imgMission4 from '../assets/images/missions/imgMission4.svg';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   mission: {
     backgroundColor: '#4973b9',
     height: '100%',
@@ -18,6 +18,9 @@ const useStyles = makeStyles({
   body: {
     display: 'flex',
     justifyContent: 'space-around',
+    [theme.breakpoints.down('md')]: {
+      justifyContent: 'space-evenly',
+    },
   },
   missionContent: {
     display: 'flex',
@@ -25,17 +28,30 @@ const useStyles = makeStyles({
     listStyleType: 'none',
     textAlign: 'center',
     alignItems: 'center',
+    [theme.breakpoints.down('md')]: {
+      maxWdith: '3rem',
+    },
   },
   missionIcon: {
-    width: '80px',
-    paddingTop: '20px',
+    width: '5.7rem',
+    paddingTop: '1.4rem',
+    [theme.breakpoints.down('md')]: {
+      width: '3rem',
+      paddingTop: '0.5rem',
+    },
   },
   missionText: {
     color: '#FFFFFF',
     maxWidth: '50%',
-    paddingTop: '20px',
+    paddingTop: '1.4rem',
+    [theme.breakpoints.down('md')]: {
+      maxWidth: '100%',
+      fontSize: '0.6rem',
+      paddingTop: '0.5rem',
+      lineHeight: '1.5'
+    },
   },
-});
+}));
 
 const missions = [
   {

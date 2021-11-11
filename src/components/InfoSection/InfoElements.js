@@ -5,9 +5,9 @@ export const InfoContainer = styled.div`
   background: ${({ lightBg }) => (lightBg ? '#f9f9f9' : '#e2e3e5')};
 
   @media screen and (max-width: 768px) {
-    padding: '30px 30px 30px 30px';
+    padding: '2.5rem 2.5rem';
     position: relative;
-    height: 820px;
+    height: 45rem;
   }
 `;
 
@@ -104,7 +104,7 @@ export const ImgWrap = styled.div`
   }
 `;
 
-export const Img1 = styled.img`
+export const MaleTshirtImg = styled.img`
   width: 100%;
   margin: 30% 0 0 20%;
   padding-right: 0;
@@ -116,13 +116,13 @@ export const Img1 = styled.img`
     -o-transform: rotate(-20deg);
     transform: rotate(-20deg);
     position: absolute;
-    width: 22%;
-    top: 50%;
-    right: 47%;
+    width: 6rem;
+    top: 28rem;
+    right: 12rem;
   }
 `;
 
-export const Img2 = styled.img`
+export const FemaleTshirtImg = styled.img`
   width: 90%;
   margin: 30% 0% 0 -40px;
   padding-right: 0;
@@ -134,8 +134,8 @@ export const Img2 = styled.img`
     -o-transform: rotate(20deg);
     transform: rotate(20deg);
     position: absolute;
-    width: 20%;
-    top: 50%;
-    left: 66%;
+    width: 5.5rem;
+    top: 28rem;
+    left: 15rem;
   }
 `;

@@ -5,7 +5,7 @@ import maleTshirt from '../assets/images/shop/maleTshirts.png';
 import femaleTshirt from '../assets/images/shop/femaleTshirts.png';
 import roundShadow from '../assets/images/shop/roundShadow.png';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   shop: {
     backgroundColor: '#FFFFFF',
     height: '100%',
@@ -60,7 +60,7 @@ const useStyles = makeStyles({
     right: '18%',
     width: '60%',
   },
-});
+}));
 
 export default function Shop() {
   const classes = useStyles();

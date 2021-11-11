@@ -21,8 +21,8 @@ import {
   Column2,
   Column3,
   ImgWrap,
-  Img1,
-  Img2,
+  MaleTshirtImg,
+  FemaleTshirtImg,
   BtnWrap,
 } from './InfoElements';
 
@@ -55,7 +55,7 @@ const InfoSection = ({ lightBg, id, imgStart, topLine, lightText, headline, dark
           <InfoRow imgStart={imgStart}>
             <Column1>
               <ImgWrap>
-                <Img1 src={maleTshirt} alt={alt} />
+                <MaleTshirtImg src={maleTshirt} alt={alt} />
               </ImgWrap>
             </Column1>
             <Column2>
@@ -76,7 +76,7 @@ const InfoSection = ({ lightBg, id, imgStart, topLine, lightText, headline, dark
             </Column2>
             <Column3>
               <ImgWrap>
-                <Img2 src={femaleTshirt} alt={alt} />
+                <FemaleTshirtImg src={femaleTshirt} alt={alt} />
               </ImgWrap>
             </Column3>
           </InfoRow>

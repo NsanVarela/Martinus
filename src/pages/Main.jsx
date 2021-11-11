@@ -13,7 +13,7 @@ import DonationForm from '../modals/donation/DonationForm';
 import newsletterService from '../services/newsletterService';
 import Notification from '../Components/controls/Notification';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
   main: {
     backgroundColor: '#E2E3E5',
     height: '100%',
@@ -32,21 +32,34 @@ const useStyles = makeStyles({
     display: 'none',
   },
   baseline2: {
-    fontSize: '50px',
+    fontSize: '3.57rem',
     zIndex: 10,
     color: '#efefef',
     position: 'absolute',
     top: '50%',
     left: '50%',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.6rem',
+      lineHeight: '1',
+      position: 'absolute',
+      top: '5rem',
+      left: '5%',
+    },
   },
   donationBtn: {
     zIndex: 100,
     position: 'absolute',
     bottom: '20%',
-    left: '35%',
-    width: '100%',
+    left: '78%',
     height: '70px',
     border: 'none',
+    [theme.breakpoints.down('sm')]: {
+      display: 'contents',
+      left: '7rem',
+      position: 'absolute',
+      bottom: '1rem',
+      height: '4.5rem',
+    },
   },
   newsletterBtn: {
     zIndex: 10,
@@ -58,6 +71,9 @@ const useStyles = makeStyles({
     position: 'absolute',
     top: '15%',
     right: '10%',
+    [theme.breakpoints.down('sm')]: {
+      top: '1rem',
+    },
   },
   newsletterIcon: {
     marginRight: 10,
@@ -80,12 +96,15 @@ const useStyles = makeStyles({
     textAlign: 'left',
     zIndex: '10',
     fontSize: '10px',
+    [theme.breakpoints.down('sm')]: {
+      bottom: '0.5rem'
+    },
   },
   byLink: {
     color: '#fff',
     fontWeight: 'bold',
   },
-});
+}));
 
 export default function Main() {
   const classes = useStyles();
@@ -152,7 +171,7 @@ export default function Main() {
         </Popup>
         <Slider {...settings}>
           <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />
-          <img className={classes.images} src={imgMain2} width="100%" alt="img 2" />
+          {/* <img className={classes.images} src={imgMain2} width="100%" alt="img 2" /> */}
         </Slider>
         <Notification notify={notify} setNotify={setNotify} />
       </div>
