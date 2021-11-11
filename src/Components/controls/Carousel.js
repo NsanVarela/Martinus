@@ -44,7 +44,7 @@ const useStyles = makeStyles(theme => ({
     },
   },
   carouselImg: {
-    width: '120rem',
+    maxWidth: '20rem',
     marginRight: '1rem',
     // backgroundPosition: 'center',
     // backgroundRepeat: 'no-repeat',
