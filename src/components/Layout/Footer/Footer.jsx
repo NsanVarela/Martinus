@@ -31,7 +31,7 @@ const useStyles = makeStyles(theme => ({
     display: 'flex',
     [theme.breakpoints.down('md')]: {
       flexDirection: 'column',
-      margin: '0.5rem'
+      margin: '0.5rem',
     },
   },
   footerLinkItems: {

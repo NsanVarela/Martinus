@@ -97,7 +97,7 @@ const useStyles = makeStyles(theme => ({
     zIndex: '10',
     fontSize: '10px',
     [theme.breakpoints.down('sm')]: {
-      bottom: '0.5rem'
+      bottom: '0.5rem',
     },
   },
   byLink: {
@@ -126,7 +126,6 @@ export default function Main() {
   const [openPopup, setOpenPopup] = useState(false);
   const [notify, setNotify] = useState({ isOpen: false, message: '', status: '' });
   const filledForm = async (contact, resetForm) => {
-
     const result = await newsletterService(contact);
     resetForm();
     setOpenNewsPopup(false);

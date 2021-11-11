@@ -24,7 +24,8 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     height: '500px',
     display: 'flex',
-    margin: 'auto',[theme.breakpoints.down('sm')]: {
+    margin: 'auto',
+    [theme.breakpoints.down('sm')]: {
       height: 'fit-content',
     },
   },
@@ -39,22 +40,20 @@ const useStyles = makeStyles(theme => ({
     height: '90%',
     display: 'flex',
     flexDirection: 'column',
-    [theme.breakpoints.down('sm')]: {
-      
-    },
+    [theme.breakpoints.down('sm')]: {},
   },
   carouselImg: {
     maxWidth: '20rem',
     marginRight: '1rem',
     [theme.breakpoints.down('sm')]: {
       margin: 'auto',
-      width: '20rem'
+      width: '20rem',
     },
   },
   eventImg: {
     width: '100%',
     [theme.breakpoints.down('sm')]: {
-      width: '20rem'
+      width: '20rem',
     },
   },
   eventTitle: {
@@ -70,8 +69,8 @@ const useStyles = makeStyles(theme => ({
   actions: {
     width: '20%',
     height: '10%',
-    //display: 'flex',
-    display: 'none'
+    // display: 'flex',
+    display: 'none',
   },
   left: {
     flex: '5%',
